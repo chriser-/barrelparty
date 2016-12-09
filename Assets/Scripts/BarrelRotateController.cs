@@ -7,24 +7,20 @@ public class BarrelRotateController : MonoBehaviour
 {
 
     [SerializeField] private float m_Speed;
-
-    void Awake()
-    {
-        
-    }
 	
     void Update()
     {
         transform.Rotate(Time.deltaTime*m_Speed, 0, 0);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-    }
-
     private void OnCollisionExit(Collision collision)
     {
-        
+        //Fix to make jump feel better
+        ThirdPersonCharacter character;
+        if ((character = collision.gameObject.GetComponent<ThirdPersonCharacter>()) != null)
+        {
+            character.AddBarrelFriction(-m_Speed * Time.deltaTime * 100f);
+        }
     }
 
     private void OnCollisionStay(Collision collision)

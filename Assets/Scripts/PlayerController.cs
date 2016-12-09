@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
+using Rewired;
 
 [RequireComponent(typeof(ThirdPersonCharacter))]
 public class PlayerController : MonoBehaviour
@@ -13,8 +14,20 @@ public class PlayerController : MonoBehaviour
     private bool m_Jump; // the world-relative desired move direction, calculated from the camForward and user input.
 
 
+    private int m_HealthPoints = 100;
+    public int HealthPoints
+    {
+        get { return m_HealthPoints; }
+        set { m_HealthPoints = Mathf.Clamp(value, 0, 100); }
+    }
+
+    private Player m_Player;
+    [SerializeField] private bool m_UseKeyboardInput = false;
+
     private void Start()
     {
+        GameManager.Instance.Players.Add(this);
+        m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count-1);
         // get the transform of the main camera
         if (Camera.main != null)
         {
@@ -37,7 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!m_Jump)
         {
-            m_Jump = Input.GetButtonDown("Jump");
+            m_Jump = m_Player.GetButtonDown("Jump");    
         }
     }
 
@@ -46,8 +59,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // read inputs
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = m_Player.GetAxis("Horizontal");
+        float v = m_Player.GetAxis("Vertical");
         //bool crouch = Input.GetKey(KeyCode.C);
 
         // calculate move direction to pass to character
