@@ -2704,3 +2704,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c72b4ed1c49f04b9fea97b317e27e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UseKeyboardInput: 1
