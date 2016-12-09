@@ -32,7 +32,7 @@ public class BarrelRotateController : MonoBehaviour
         ThirdPersonCharacter character;
         if ((character = collision.gameObject.GetComponent<ThirdPersonCharacter>()) != null)
         {
-            character.AddBarrelFriction(m_Speed*Time.deltaTime*transform.lossyScale.x);
+            character.AddBarrelFriction(m_Speed*Time.deltaTime*100f);
         }
     }
 }
