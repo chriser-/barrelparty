@@ -6,10 +6,20 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: BananeClosed
+    100004: BananeOpen
     400000: //RootNode
+    400002: BananeClosed
+    400004: BananeOpen
     2300000: //RootNode
+    2300002: BananeClosed
+    2300004: BananeOpen
     3300000: //RootNode
+    3300002: BananeClosed
+    3300004: BananeOpen
     4300000: Cylinder
+    4300002: BananeOpen
+    4300004: BananeClosed
     7400000: Default Take
     9500000: //RootNode
   materials:
