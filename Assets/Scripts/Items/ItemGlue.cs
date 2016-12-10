@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemGlue : ItemBase
 {
-    public override IEnumerator UseItem()
+    protected override IEnumerator useItem()
     {
         yield return null;
     }

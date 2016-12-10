@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemBomb : ItemBase
 {
-    public override IEnumerator UseItem()
+    protected override IEnumerator useItem()
     {
         yield return null;
     }
