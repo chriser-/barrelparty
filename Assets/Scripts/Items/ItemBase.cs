@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class ItemBase : MonoBehaviour
 {
     public abstract void UseItem();
-    public abstract void PickUpItem();
     protected PlayerController m_Player;
     [SerializeField] protected ObjectBase m_SpawnObject;
 
@@ -15,9 +14,8 @@ public abstract class ItemBase : MonoBehaviour
         if ((playerController = other.gameObject.GetComponent<PlayerController>()) != null)
         {
             m_Player = playerController;
-            playerController.CurrentItem = this;
+            playerController.CurrentItem = UseItem;
             Destroy(gameObject);
-            PickUpItem();
         }
     }
 }
