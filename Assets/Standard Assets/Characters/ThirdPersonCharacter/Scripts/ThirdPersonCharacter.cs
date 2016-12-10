@@ -28,6 +28,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
+        public CapsuleCollider Capsule { get { return m_Capsule; } }
 		bool m_Crouching;
 	    private float m_InitJumpPower;
 

@@ -9,6 +9,7 @@ using UnityStandardAssets.Effects;
     {
         public float explosionForce = 4;
 
+        [SerializeField] private float m_Multiplier;
         [SerializeField] private float m_MultiplierDamage = 0.2f;
 
 
@@ -17,10 +18,8 @@ using UnityStandardAssets.Effects;
             // wait one frame because some explosions instantiate debris which should then
             // be pushed by physics force
             yield return null;
-
-            float multiplier = GetComponent<ParticleSystemMultiplier>().multiplier;
-
-            float r = 10 * multiplier;
+            
+            float r = m_Multiplier * 10f;
             var cols = Physics.OverlapSphere(transform.position, r);
             var rigidbodies = new List<Rigidbody>();
             foreach (var col in cols)
@@ -36,8 +35,12 @@ using UnityStandardAssets.Effects;
                 PlayerController character = rb.GetComponent<PlayerController>();
                 if (character != null)
                 {
-                    character.ForceMultiplier += m_MultiplierDamage;
-                    character.AddExplosionForce(explosionForce * multiplier * 0.5f, transform.position, r, 1 * multiplier * 0.05f);
+                    if (!character.IsInvincible)
+                    {
+                        character.ForceMultiplier += m_MultiplierDamage;
+                        character.AddExplosionForce(explosionForce * m_Multiplier * 0.5f, transform.position, r, 1 * m_Multiplier * 0.05f);
+                    }
+                    
                 }
                 
             }
