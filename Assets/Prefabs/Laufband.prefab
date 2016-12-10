@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4778865440855336}
-  - component: {fileID: 95159374045127194}
   - component: {fileID: 114058459046326426}
   - component: {fileID: 65220438983538754}
   m_Layer: 0
@@ -205,23 +204,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0822768, y: 0.5993029, z: 0.09537456}
   m_Center: {x: -0.014684744, y: -0.00000020508466, z: 0.04768721}
---- !u!95 &95159374045127194
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1163171593890712}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 7319c61c0c547d04693576299a0f6869, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114058459046326426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,6 +215,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b95691fcccbe8c468637413f022d237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speedTexture: 0.02
-  m_speedWorld: 128
+  m_speedTexture: 0.01
   m_textureMat: {fileID: 1436209903050508}
