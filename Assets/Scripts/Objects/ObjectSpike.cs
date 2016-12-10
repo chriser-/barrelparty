@@ -11,11 +11,11 @@ public class ObjectSpike : MonoBehaviour
 
     [SerializeField] private float m_MultiplierDamage;
 
-    private BarrelRotateController m_Barrel;
+    private BarrelController m_Barrel;
 
     private void Awake()
     {
-        m_Barrel = GameObject.FindGameObjectWithTag("Barrel").GetComponent<BarrelRotateController>();
+        m_Barrel = GameObject.FindGameObjectWithTag("Barrel").GetComponent<BarrelController>();
     }
 
     private void Start()

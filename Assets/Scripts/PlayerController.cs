@@ -35,6 +35,24 @@ public class PlayerController : MonoBehaviour
     }
 
     private Player m_Player;
+    [SerializeField]
+    private int m_PlayerId = 1;
+    public int PlayerId
+    {
+        get { return m_PlayerId; }
+        set
+        {
+            m_PlayerId = value;
+            m_Player = ReInput.players.GetPlayer(m_PlayerId);
+        }
+    }
+    private int m_PlayerNum = 1;
+    public int PlayerNum
+    {
+        get { return m_PlayerNum; }
+        set { m_PlayerNum = value; }
+    }
+
     [SerializeField] private bool m_UseKeyboardInput = false;
 
     [SerializeField]
@@ -55,8 +73,6 @@ public class PlayerController : MonoBehaviour
             m_Character.Move(Vector3.zero, false, false);
         }
     }
-
-    private BarrelRotateController m_Barrel;
     private bool m_GravityDone = true;
 
     private Animator m_animator;
@@ -68,17 +84,15 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.Players.Add(this);
         startposition = transform.position;
+        // get the third person character ( this should never be null due to require component )
+        m_Character = GetComponent<ThirdPersonCharacter>();
+
+        m_animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
         m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count - 1);
-
-        m_Barrel = FindObjectOfType<BarrelRotateController>();
-        // get the third person character ( this should never be null due to require component )
-        m_Character = GetComponent<ThirdPersonCharacter>();
-
-        m_animator = GetComponent<Animator>();
     }
 
 
@@ -229,5 +243,12 @@ public class PlayerController : MonoBehaviour
     {
         AudioController.Play("Death");
         transform.position = startposition;
+    }
+    public void SetControlable(bool controlable)
+    {
+        //m_Character.Move(Vector3.zero, false, false);
+        GetComponent<Rigidbody>().isKinematic = !controlable;
+        GetComponent<Collider>().enabled = controlable;
+        GetComponents<MonoBehaviour>().All(b => { b.enabled = controlable; return true; });
     }
 }
