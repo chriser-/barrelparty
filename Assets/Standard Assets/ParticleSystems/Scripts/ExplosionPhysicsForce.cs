@@ -30,7 +30,7 @@ namespace UnityStandardAssets.Effects
             }
             foreach (var rb in rigidbodies)
             {
-                rb.AddExplosionForce(explosionForce*multiplier, transform.position, r, 1*multiplier, ForceMode.Impulse);
+                rb.AddExplosionForce(explosionForce*multiplier*0.5f, transform.position, r, 1*multiplier*0.05f, ForceMode.Impulse);
             }
 
             yield return new WaitForSeconds(3);
