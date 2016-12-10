@@ -5,12 +5,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 461136}
-  - 114: {fileID: 11461132}
-  - 114: {fileID: 11461134}
-  - 114: {fileID: 11461136}
+  - component: {fileID: 461136}
+  - component: {fileID: 11461132}
+  - component: {fileID: 11461136}
   m_Layer: 0
   m_Name: RewiredEventSystem
   m_TagString: Untagged
@@ -30,6 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11461132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -44,18 +44,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
---- !u!114 &11461134
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
 --- !u!114 &11461136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,9 +64,10 @@ MonoBehaviour:
   m_SubmitButton: UISubmit
   m_CancelButton: UICancel
   m_InputActionsPerSecond: 4.5
+  m_RepeatDelay: 0
   m_AllowActivationOnMobileDevice: 1
   m_allowMouseInput: 1
-  m_allowMouseInputOnMobileDevice: 0
+  m_allowMouseInputIfTouchSupported: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -90,4 +79,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 161136}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

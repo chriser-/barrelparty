@@ -52,3 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 1
+  m_PlayerPrefab: {fileID: 114126852170509968, guid: 8bce53841a8f4b7489614c3bffdac718,
+    type: 2}
