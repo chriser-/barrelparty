@@ -6,17 +6,13 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class ObjectRocket : ObjectBase
 {
     public float m_speed = 1.0f;
-    public float m_duration = 10.0f;
+    public float m_duration = 3.0f;
 
     
     public PlayerController CharController;
 
     private bool m_isActive = false;
 
-    void Awake()
-    {
-        startRocket();
-    }
 
     void Update()
     {
@@ -32,7 +28,7 @@ public class ObjectRocket : ObjectBase
             CharController.DetachHands();
     }
 
-    private void startRocket()
+    public void StartRocket()
     {
         if (CharController != null)
         {
