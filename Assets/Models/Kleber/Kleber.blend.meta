@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3c8ee4198ecdb924c94303524e67805d
-timeCreated: 1481318379
+guid: 886f0311489a71746810c7bd8f7c4bb4
+timeCreated: 1481324336
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Bomb
+    4300000: Cylinder_001
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -53,7 +53,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
