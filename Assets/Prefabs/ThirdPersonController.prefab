@@ -1212,7 +1212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086529800156280}
   - component: {fileID: 135925321875078846}
-  - component: {fileID: 114497347910902452}
+  - component: {fileID: 114654917474993944}
   m_Layer: 0
   m_Name: EthanLeftFoot
   m_TagString: Untagged
@@ -1259,7 +1259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4578333296304952}
   - component: {fileID: 135735542236059950}
-  - component: {fileID: 114722967750661264}
+  - component: {fileID: 114047721589369406}
   m_Layer: 0
   m_Name: EthanRightFoot
   m_TagString: Untagged
@@ -2489,6 +2489,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114047721589369406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931281450566372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32cb634373ffc9947b5ab8420dbb3fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - audioName: woodstep
+    mat: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
+  position: 2
+  volume: 1
+  delay: 0
+  startTime: 0
 --- !u!114 &114067184059842256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2522,7 +2540,7 @@ MonoBehaviour:
   m_HealthPoints: 100
   m_UseKeyboardInput: 1
   m_DisableInput: 0
---- !u!114 &114497347910902452
+--- !u!114 &114654917474993944
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2530,33 +2548,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1885186760028272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ec16d868c9e51439f6f527d493fa2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 32cb634373ffc9947b5ab8420dbb3fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerTag: Barrel
-  audioID: Woodstep1
-  soundType: 0
-  position: 0
-  triggerEvent: 5
-  volume: 1
-  delay: 0
-  startTime: 0
---- !u!114 &114722967750661264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931281450566372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ec16d868c9e51439f6f527d493fa2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TriggerTag: Barrel
-  audioID: Woodstep1
-  soundType: 0
-  position: 0
-  triggerEvent: 5
+  audios:
+  - audioName: woodstep
+    mat: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
+  position: 2
   volume: 1
   delay: 0
   startTime: 0

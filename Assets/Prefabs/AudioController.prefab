@@ -70,7 +70,7 @@ MonoBehaviour:
     _parentCategoryName: 
     AudioObjectPrefab: {fileID: 0}
     AudioItems:
-    - Name: Woodstep1
+    - Name: woodstep
       Loop: 0
       loopSequenceCount: 0
       loopSequenceOverlap: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   _audioDisabled: 0
   _volume: 1
   _currentInspectorSelection:
-    currentCategoryIndex: 1
+    currentCategoryIndex: 0
     currentItemIndex: 0
     currentSubitemIndex: 0
     currentPlaylistEntryIndex: 0
