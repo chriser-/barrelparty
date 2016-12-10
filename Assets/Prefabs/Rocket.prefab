@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 2
-  m_duration: 6
+  m_duration: 3
+  CharController: {fileID: 0}
 --- !u!136 &136079825072159534
 CapsuleCollider:
   m_ObjectHideFlags: 1

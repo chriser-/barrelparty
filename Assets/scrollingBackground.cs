@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class scrollingBackground : MonoBehaviour {
 
-	// Use this for initialization
+	// Transformation of 3 Sprites
+	private Transform[] backgrounds;
+	private int lefttmp, righttmp;
+
 	void Start () {
+		backgrounds = new Transform[2];   // 3 sprites 
+	}
+
+	private void moveToLeft(){
 		
 	}
-	
-	// Update is called once per frame
+
+	private void moveToRight(){
+
+	}
+
 	void Update () {
 		
 	}

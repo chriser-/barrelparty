@@ -24,6 +24,14 @@ public class PlayerController : MonoBehaviour
         set { m_ForceMultiplier = Mathf.Clamp(value, 0, 3); }
     }
 
+    [SerializeField]
+    private int m_Hearts = 5;
+    public int Hearts
+    {
+        get { return m_Hearts; }
+        set { m_Hearts = Mathf.Clamp(value, 0, 10); }
+    }
+
     private Player m_Player;
     [SerializeField] private bool m_UseKeyboardInput = false;
 
@@ -54,9 +62,13 @@ public class PlayerController : MonoBehaviour
     private Transform m_handL;
     private Transform m_handR;
 
-    private void Start()
+    private void Awake()
     {
         GameManager.Instance.Players.Add(this);
+    }
+
+    private void Start()
+    {
         m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count - 1);
 
         m_Barrel = FindObjectOfType<BarrelRotateController>();
