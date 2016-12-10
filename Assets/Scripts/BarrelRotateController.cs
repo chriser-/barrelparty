@@ -15,19 +15,19 @@ public class BarrelRotateController : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         //Fix to make jump feel better
-        ThirdPersonCharacter character;
-        if ((character = collision.gameObject.GetComponent<ThirdPersonCharacter>()) != null)
+        PlayerController player;
+        if ((player = collision.gameObject.GetComponent<PlayerController>()) != null)
         {
-            character.AddBarrelFriction(-m_Speed * Time.deltaTime * 100f);
+            player.Character.AddBarrelFriction(-m_Speed * Time.deltaTime * 100f);
         }
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        ThirdPersonCharacter character;
-        if ((character = collision.gameObject.GetComponent<ThirdPersonCharacter>()) != null)
+        PlayerController player;
+        if ((player = collision.gameObject.GetComponent<PlayerController>()) != null)
         {
-            character.AddBarrelFriction(m_Speed*Time.deltaTime*100f);
+            player.Character.AddBarrelFriction(m_Speed*Time.deltaTime*100f);
         }
     }
 }
