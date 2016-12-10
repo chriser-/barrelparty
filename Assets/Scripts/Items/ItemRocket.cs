@@ -6,10 +6,10 @@ public class ItemRocket : ItemBase
 {
     protected override IEnumerator useItem()
     {
-        ObjectRocket rocket = m_SpawnObject.PlaceObject<ObjectRocket>(m_Player.transform.position);
+        ObjectRocket rocket = m_SpawnObject.PlaceObject<ObjectRocket>(m_Player.transform.position + new Vector3(0, m_Player.transform.lossyScale.y, 0));
         rocket.CharController = m_Player;
         rocket.StartRocket();
-        Debug.Log(m_Player);
+        m_Player.transform.position -= m_Player.transform.forward * 0.25f;
         yield return null;
     }
 }

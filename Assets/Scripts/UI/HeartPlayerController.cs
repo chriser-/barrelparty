@@ -8,7 +8,7 @@ public class HeartPlayerController : MonoBehaviour {
     private List<HeartView> m_Hearts = new List<HeartView>();
     private HeartView m_HeartPrefab;
     private PlayerController m_Player;
-	void Start ()
+	void Awake ()
 	{
 	    m_HeartPrefab = GetComponentInChildren<HeartView>();
 	    m_HeartPrefab.gameObject.SetActive(false);
