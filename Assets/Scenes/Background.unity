@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b188209ba3f40d18435f6fbfec0004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barrelController: {fileID: 1416376457}
 --- !u!1 &1047995035
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +351,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1416376456 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: f642dd1d245704775b7186e3234f7aa2, type: 3}
+  m_PrefabInternal: {fileID: 126807236}
+--- !u!114 &1416376457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1416376456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1bc3b28755ac642a562693d6a42bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Speed: 5
+  Collider: {fileID: 0}
 --- !u!1 &1719545532
 GameObject:
   m_ObjectHideFlags: 0
