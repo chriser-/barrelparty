@@ -21,7 +21,8 @@ public class ObjectRocket : ObjectBase
 
     private void OnDestroy()
     {
-        charController.DetachHands();
+        if(charController != null)
+            charController.DetachHands();
     }
 
     private void OnCollisionEnter(Collision collision)

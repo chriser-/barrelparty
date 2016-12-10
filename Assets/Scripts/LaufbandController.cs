@@ -12,7 +12,7 @@ public class LaufbandController : MonoBehaviour
 
     private void Start()
     {
-        Renderer rend = m_textureMat.GetComponent<Renderer>();
+        rend = m_textureMat.GetComponent<Renderer>();
     }
 
     void FixedUpdate()
