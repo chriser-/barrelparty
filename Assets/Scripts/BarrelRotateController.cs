@@ -8,6 +8,10 @@ public class BarrelRotateController : MonoBehaviour
     [SerializeField] private float m_Speed;
     public Collider Collider;
 
+	public float getSpeed(){
+		return m_Speed;
+	}
+
     void Awake()
     {
         Collider = GetComponent<Collider>();
