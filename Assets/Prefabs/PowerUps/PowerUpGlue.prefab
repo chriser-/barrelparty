@@ -9,42 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1310606502494588}
+  m_RootGameObject: {fileID: 1797579367926346}
   m_IsPrefabParent: 1
---- !u!1 &1310606502494588
+--- !u!1 &1189565080440528
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4307168718533134}
-  - component: {fileID: 33162618988258926}
-  - component: {fileID: 135692366512885214}
-  - component: {fileID: 23775623964002236}
-<<<<<<< Updated upstream
-  - component: {fileID: 114058059111383296}
-=======
-  - component: {fileID: 114738627354140024}
->>>>>>> Stashed changes
-  m_Layer: 0
-  m_Name: PowerUpGlue
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1822824593757312
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4123074654844702}
-  - component: {fileID: 33559428403517338}
-  - component: {fileID: 23582487412957062}
-  - component: {fileID: 114043633611077702}
+  - component: {fileID: 4204978727397716}
+  - component: {fileID: 33065923736856422}
+  - component: {fileID: 23564734904756910}
+  - component: {fileID: 114484791408400562}
   m_Layer: 0
   m_Name: Kleber
   m_TagString: Untagged
@@ -52,39 +29,58 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4123074654844702
+--- !u!1 &1797579367926346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4221449409268276}
+  - component: {fileID: 33755867552152280}
+  - component: {fileID: 135038425135814244}
+  - component: {fileID: 23567798419993898}
+  - component: {fileID: 114522777554686782}
+  m_Layer: 0
+  m_Name: PowerUpGlue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4204978727397716
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822824593757312}
-  m_LocalRotation: {x: -0.67936593, y: 0.19611716, z: -0.19611716, w: 0.67936593}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_GameObject: {fileID: 1189565080440528}
+  m_LocalRotation: {x: -0.5128784, y: -0, z: -0, w: 0.8584613}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
-  m_Father: {fileID: 4307168718533134}
+  m_Father: {fileID: 4221449409268276}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -57.796, y: 90.00001, z: -90.00001}
---- !u!4 &4307168718533134
+  m_LocalEulerAnglesHint: {x: -61.711002, y: 0, z: 0}
+--- !u!4 &4221449409268276
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310606502494588}
+  m_GameObject: {fileID: 1797579367926346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.08, z: -2.86}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
-  - {fileID: 4123074654844702}
+  - {fileID: 4204978727397716}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23582487412957062
+--- !u!23 &23564734904756910
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822824593757312}
+  m_GameObject: {fileID: 1189565080440528}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -111,12 +107,12 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!23 &23775623964002236
+--- !u!23 &23567798419993898
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310606502494588}
+  m_GameObject: {fileID: 1797579367926346}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -142,60 +138,52 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33162618988258926
+--- !u!33 &33065923736856422
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310606502494588}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33559428403517338
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822824593757312}
+  m_GameObject: {fileID: 1189565080440528}
   m_Mesh: {fileID: 4300000, guid: 886f0311489a71746810c7bd8f7c4bb4, type: 3}
---- !u!114 &114043633611077702
+--- !u!33 &33755867552152280
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1797579367926346}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114484791408400562
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822824593757312}
+  m_GameObject: {fileID: 1189565080440528}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b8446f49a5db5d4fb7823734844af60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotationPivot: {fileID: 4307168718533134}
+  m_rotationPivot: {fileID: 4221449409268276}
   m_speed: 1
-<<<<<<< Updated upstream
---- !u!114 &114058059111383296
-=======
---- !u!114 &114738627354140024
->>>>>>> Stashed changes
+--- !u!114 &114522777554686782
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310606502494588}
+  m_GameObject: {fileID: 1797579367926346}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 147cd57cd86e3854da566b12194cb2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  m_SpawnObject: {fileID: 114002105074515868, guid: 25a0d2ec47ebc5e4e9582972ed986770,
+  m_SpawnObject: {fileID: 114465633031100336, guid: 25a0d2ec47ebc5e4e9582972ed986770,
     type: 2}
-=======
-  m_SpawnObject: {fileID: 0}
->>>>>>> Stashed changes
---- !u!135 &135692366512885214
+--- !u!135 &135038425135814244
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310606502494588}
+  m_GameObject: {fileID: 1797579367926346}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1

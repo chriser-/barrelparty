@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour {
                 float xMax = playersAlive.Max(p => p.transform.position.x);
                 float yMax = playersAlive.Max(p => p.transform.position.y);
 
-                relativeCenter = (new Vector3(xMin, yMin, 0) + new Vector3(xMax, yMax, 0))*0.25f;
+                relativeCenter = (new Vector3(xMin, yMin, 0) + new Vector3(xMax, yMax, 0))*0.5f;
 
                 ////calculate distance of camera
                 //float maxDistance = 0f;
