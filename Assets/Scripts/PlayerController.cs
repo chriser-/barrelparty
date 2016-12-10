@@ -67,24 +67,8 @@ public class PlayerController : MonoBehaviour
         get { return m_DisableInput; }
         set
         {
-            Debug.Log("DisableInput");
             m_DisableInput = value;
             m_Character.Move(Vector3.zero, false, false);
-        }
-    }
-
-    private BarrelController m_Barrel;
-
-    public bool GravityDone
-    {
-        get
-        {
-            return m_GravityDone;
-        }
-
-        set
-        {
-            m_GravityDone = value;
         }
     }
     private bool m_GravityDone = true;
