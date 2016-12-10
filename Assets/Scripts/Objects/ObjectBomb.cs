@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-public class BombController : MonoBehaviour
+public class ObjectBomb : ObjectBase
 {
 
     [SerializeField]
