@@ -80,7 +80,7 @@ public class HeartManagement : MonoBehaviour {
 
              }
             
-           if(hearts > 0 & hearts < 5)
+            if(hearts > 0 & hearts < 5)
             {
                 hearts += 1;
                 tmp_a = Instantiate(tmp_a, new Vector3(tmp_a.transform.position.x +21, tmp_a.transform.position.y, tmp_a.transform.position.z), tmp_a.transform.rotation);
