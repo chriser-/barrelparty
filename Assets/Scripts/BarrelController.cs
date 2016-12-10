@@ -5,7 +5,15 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class BarrelController : MonoBehaviour
 {
+    public float Speed {
+        get { return m_Speed; }
+    }
+
     [SerializeField] private float m_Speed;
+
+	public float getSpeed(){
+		return m_Speed;
+	}
 
     void Awake()
     {

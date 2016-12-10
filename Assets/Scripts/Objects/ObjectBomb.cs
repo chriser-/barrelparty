@@ -16,16 +16,11 @@ public class ObjectBomb : ObjectBase
 
     private Renderer m_Renderer;
 
-    private SphereCollider m_TriggerCollider;
-
     private IEnumerator m_ChangeMaterialCoroutine;
 
 
     void Awake()
     {
-        m_TriggerCollider = GetComponents<SphereCollider>().First(c => c.isTrigger);
-        m_TriggerCollider.enabled = false;
-
         m_Renderer = GetComponent<Renderer>();
 
         m_ChangeMaterialCoroutine = ChangeMaterialCoroutine();
@@ -43,8 +38,6 @@ public class ObjectBomb : ObjectBase
             currentTime += Time.deltaTime;
             yield return null;
         }
-
-        m_TriggerCollider.enabled = true;
 
         yield return new WaitForSeconds(0.01f);
 
