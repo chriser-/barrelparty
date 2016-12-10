@@ -219,6 +219,8 @@ MonoBehaviour:
   m_speed: 2
   m_duration: 3
   CharController: {fileID: 0}
+  ExplosionPrefab: {fileID: 1619494712824292, guid: f32dc5d608a61d345a9bfb3f5522daf8,
+    type: 2}
 --- !u!136 &136079825072159534
 CapsuleCollider:
   m_ObjectHideFlags: 1
