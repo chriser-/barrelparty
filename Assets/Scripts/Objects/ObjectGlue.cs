@@ -79,6 +79,6 @@ public class ObjectGlue : ObjectBase
                 playerController.ForceMultiplier += m_MultiplierDamage;
         }
 
-        playerController.GravityDone = false;      
+        //playerController.GravityDone = false;      
     }
 }
