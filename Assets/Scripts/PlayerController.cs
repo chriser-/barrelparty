@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_Move;
     private bool m_Jump; // the world-relative desired move direction, calculated from the camForward and user input.
 
-
+    [SerializeField]
     private int m_HealthPoints = 100;
     public int HealthPoints
     {
@@ -23,6 +23,14 @@ public class PlayerController : MonoBehaviour
 
     private Player m_Player;
     [SerializeField] private bool m_UseKeyboardInput = false;
+
+    [SerializeField]
+    private ItemBase m_CurrentItem;
+    public ItemBase CurrentItem
+    {
+        get { return m_CurrentItem; }
+        set { m_CurrentItem = value; }
+    }
 
     private void Start()
     {
