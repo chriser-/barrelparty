@@ -6,6 +6,12 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class BarrelRotateController : MonoBehaviour
 {
     [SerializeField] private float m_Speed;
+    public Collider Collider;
+
+    void Awake()
+    {
+        Collider = GetComponent<Collider>();
+    }
 	
     void Update()
     {

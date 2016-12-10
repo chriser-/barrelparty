@@ -166,7 +166,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
 			{
 				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x*1.2f, m_JumpPower, m_Rigidbody.velocity.z*1.2f);
+				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x*1.2f, Physics.gravity.y < 0 ? m_JumpPower : -m_JumpPower, m_Rigidbody.velocity.z*1.2f);
                 AudioController.Play("jump", 1, 0, 0);
                 m_IsGrounded = false;
 				//m_Animator.applyRootMotion = false;
@@ -202,11 +202,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			RaycastHit hitInfo;
 #if UNITY_EDITOR
 			// helper to visualise the ground check ray in the scene view
-			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
+			Debug.DrawLine(transform.position + (transform.up * 0.1f), transform.position + (transform.up * 0.1f) + (transform.up*-1 * m_GroundCheckDistance));
 #endif
 			// 0.1f is a small offset to start the ray from inside the character
 			// it is also good to note that the transform position in the sample assets is at the base of the character
-			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+			if (Physics.Raycast(transform.position + (transform.up * 0.1f), transform.up*-1, out hitInfo, m_GroundCheckDistance))
 			{
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
@@ -223,7 +223,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 	    public void AddBarrelFriction(float amount)
 	    {
-	       m_Rigidbody.AddForce(-amount, 0, 0, ForceMode.Force);
+	        if (Physics.gravity.y < 0)
+	            amount *= -1;
+	       m_Rigidbody.AddForce(amount, 0, 0, ForceMode.Force);
 	    }
 	}
 }
