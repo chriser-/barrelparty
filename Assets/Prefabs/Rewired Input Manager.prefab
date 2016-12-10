@@ -210,6 +210,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 0
       _categoryId: 1
+    - _id: 14
+      _name: UseItem
+      _type: 1
+      _descriptiveName: UseItem
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 0
+      _categoryId: 1
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -231,7 +240,7 @@ MonoBehaviour:
       - categoryId: 0
         actionIds: 
       - categoryId: 1
-        actionIds: 00000000010000000d000000
+        actionIds: 00000000010000000d0000000e000000
       - categoryId: 5
         actionIds: 090000000a0000000b0000000c000000
     inputBehaviors:
@@ -345,8 +354,8 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-      - _actionCategoryId: 2
-        _actionId: 3
+      - _actionCategoryId: 1
+        _actionId: 14
         _elementType: 1
         _elementIdentifierId: 5
         _axisRange: 0
@@ -7216,6 +7225,17 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 1
+        _actionId: 14
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 117
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps:
     - id: 0
       categoryId: 0
@@ -7249,7 +7269,7 @@ MonoBehaviour:
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 6
-    actionIdCounter: 14
+    actionIdCounter: 15
     actionCategoryIdCounter: 6
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 2
@@ -7257,7 +7277,7 @@ MonoBehaviour:
     keyboardLayoutIdCounter: 1
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
-    joystickMapIdCounter: 5
+    joystickMapIdCounter: 7
     keyboardMapIdCounter: 1
     mouseMapIdCounter: 1
     customControllerMapIdCounter: 1
