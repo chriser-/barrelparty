@@ -34,7 +34,15 @@ public class ObjectRocket : ObjectBase
         {
             CharController.AttachHands(transform, transform);
             m_isActive = true;
-            Destroy(gameObject, m_duration);
+            StartCoroutine(destroyRocket());
         }
+    }
+
+    private IEnumerator destroyRocket()
+    {
+        yield return new WaitForSeconds(m_duration);
+        CharController.DetachHands();
+        CharController.GravityDone = false;
+        Destroy(gameObject);
     }
 }
