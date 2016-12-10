@@ -208,6 +208,11 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(InvincibleCoroutine(duration));
     }
 
+    public void SetInvincible(bool b)
+    {
+        m_IsInvincible = b;
+    }
+
     private IEnumerator InvincibleCoroutine(float duration)
     {
         m_IsInvincible = true;
