@@ -16,11 +16,11 @@ public class scrollingBackground : MonoBehaviour {
 		float amtToMove = getSpeed() * Time.deltaTime;
 		transform.Translate(Vector3.right * amtToMove, Space.World);
 
-		if (transform.position.x < -24.35f) {
-			transform.position = new Vector3(24.35f, transform.position.y, transform.position.z);
+		if (transform.position.x < -24.50f) {
+			transform.position = new Vector3(24.50f, transform.position.y, transform.position.z);
 		}
-		if (transform.position.x > 24.35f) {
-			transform.position = new Vector3(-24.35f, transform.position.y, transform.position.z);
+		if (transform.position.x > 24.50f) {
+			transform.position = new Vector3(-24.50f, transform.position.y, transform.position.z);
 		}
 	}
 
