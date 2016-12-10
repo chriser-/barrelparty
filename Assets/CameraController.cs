@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
             return;
 
         Vector3 cameraPosition = transform.position;
-        List<PlayerController> playersAlive = GameManager.Instance.Players.Where(p => p.Hearts > 0).ToList();
+        List<PlayerController> playersAlive = GameManager.Instance.Players.Where(p => p.Hearts > 0 && p.IsInsideBarrel).ToList();
 
         if (playersAlive.Count > 0)
         {

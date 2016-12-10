@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
     }
     private bool m_GravityDone = true;
 
+    public bool IsInsideBarrel { get; private set; }
+
     private Animator m_animator;
     private bool m_ikActive = false;
     private Transform m_handL;
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.Players.Add(this);
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<ThirdPersonCharacter>();
-
+        IsInsideBarrel = true; //TODO
         m_animator = GetComponent<Animator>();
     }
 
@@ -134,20 +136,19 @@ public class PlayerController : MonoBehaviour
             if (Physics.gravity.y > 0)
             {
                 Vector3 targetUp = Vector3.Slerp(Vector3.up, Vector3.down,
-                    rayBottom.distance / ((rayTop.distance + rayBottom.distance) * 0.8f));
+                    rayBottom.distance/((rayTop.distance + rayBottom.distance)*0.8f));
                 transform.rotation = Quaternion.LookRotation(transform.forward, targetUp);
                 m_GravityDone = false;
             }
             else if (!m_GravityDone)
             {
                 Vector3 targetUp = Vector3.Slerp(Vector3.down, Vector3.up,
-                    rayTop.distance / ((rayTop.distance + rayBottom.distance) * 0.8f));
+                    rayTop.distance/((rayTop.distance + rayBottom.distance)*0.8f));
                 transform.rotation = Quaternion.LookRotation(transform.forward, targetUp);
                 m_GravityDone = targetUp == Vector3.up;
                 if (m_GravityDone)
                     transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
             }
-
         }
 
     }
