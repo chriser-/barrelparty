@@ -15,6 +15,11 @@ public class GameManager : Singleton<GameManager>
         get { return m_Players; }
     }
 
+    void Start()
+    {
+        AudioController.PlayMusic("Game Music", 1, 0, 0);
+    }
+
     void Update()
     {
         /*
