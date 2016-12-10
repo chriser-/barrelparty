@@ -8,8 +8,15 @@ public class ObjectRocket : ObjectBase
     public float m_speed = 1.0f;
     public float m_duration = 10.0f;
 
+    
+    public PlayerController CharController;
+
     private bool m_isActive = false;
-    private PlayerController charController;
+
+    void Awake()
+    {
+        startRocket();
+    }
 
     void Update()
     {
@@ -21,16 +28,15 @@ public class ObjectRocket : ObjectBase
 
     private void OnDestroy()
     {
-        if(charController != null)
-            charController.DetachHands();
+        if(CharController != null)
+            CharController.DetachHands();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void startRocket()
     {
-        charController = collision.gameObject.GetComponent<PlayerController>();
-        if (charController != null)
+        if (CharController != null)
         {
-            charController.AttachHands(transform, transform);
+            CharController.AttachHands(transform, transform);
             m_isActive = true;
             Destroy(gameObject, m_duration);
         }
