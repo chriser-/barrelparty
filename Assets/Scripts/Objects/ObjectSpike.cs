@@ -23,11 +23,6 @@ public class ObjectSpike : MonoBehaviour
         StartCoroutine(SpawnSpike());
     }
 
-    private void Update()
-    {
-        transform.RotateAround(Vector3.zero, Vector3.forward,  - m_Barrel.Speed * Time.deltaTime);
-    }
-
     private void OnCollisionEnter(Collision coll)
     {
         PlayerController character;
@@ -54,7 +49,27 @@ public class ObjectSpike : MonoBehaviour
             currentTime += Time.fixedDeltaTime;
             yield return Time.fixedDeltaTime;
         }
+        transform.parent = m_Barrel.transform;
 
-        Destroy(gameObject, m_Lifetime);
+        yield return new WaitForSeconds(m_Lifetime);
+        StartCoroutine(DestroySpike());
+    }
+
+    public IEnumerator DestroySpike()
+    {
+        float duration = 0.2f;
+        float currentTime = 0f;
+
+        Vector3 initPos = transform.position;
+        Vector3 endPos = transform.position - transform.up * 1.5f;
+
+        while (currentTime < duration)
+        {
+            transform.localPosition = Vector3.Slerp(initPos, endPos, currentTime / duration);
+            currentTime += Time.fixedDeltaTime;
+            yield return Time.fixedDeltaTime;
+        }
+
+        Destroy(gameObject);
     }
 }
