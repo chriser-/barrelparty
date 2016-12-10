@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectGlue : ObjectBase
 {
+    [SerializeField] private float m_MultiplierDamage = 0.2f;
     private List<PlayerController> m_Players = new List<PlayerController>();
     void Start()
     {
@@ -57,6 +58,7 @@ public class ObjectGlue : ObjectBase
         yield return new WaitForSeconds(10f);
         m_Players.ForEach(removeGlue);
         Destroy(gameObject);
+
     }
 
     private void removeGlue(PlayerController playerController)
@@ -67,5 +69,15 @@ public class ObjectGlue : ObjectBase
         playerController.transform.SetParent(null);
         //allow input
         playerController.DisableInput = false;
+
+        RaycastHit rayCastBot;
+
+        if (Physics.Raycast(new Ray(transform.position, Vector3.down), out rayCastBot, 1000, LayerMask.GetMask("Barrel")))
+        {
+            Debug.Log(rayCastBot.distance);
+                playerController.ForceMultiplier += m_MultiplierDamage;
+        }
+
+        playerController.GravityDone = false;
     }
 }
