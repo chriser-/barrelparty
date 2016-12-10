@@ -637,7 +637,7 @@ Prefab:
     - target: {fileID: 114889765390258926, guid: e38fca1a17d3d644c87a0b9a16140998,
         type: 2}
       propertyPath: AudioCategories.Array.data[0].AudioItems.Array.data[4].DestroyOnLoad
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114889765390258926, guid: e38fca1a17d3d644c87a0b9a16140998,
         type: 2}
