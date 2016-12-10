@@ -2519,7 +2519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c72b4ed1c49f04b9fea97b317e27e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HealthPoints: 100
   m_UseKeyboardInput: 1
+  m_DisableInput: 0
 --- !u!114 &114497347910902452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2531,6 +2533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ec16d868c9e51439f6f527d493fa2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerTag: Barrel
   audioID: Woodstep1
   soundType: 0
   position: 0
@@ -2549,6 +2552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ec16d868c9e51439f6f527d493fa2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerTag: Barrel
   audioID: Woodstep1
   soundType: 0
   position: 0
@@ -2566,8 +2570,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06
-  m_Center: {x: -0.09, y: 0, z: 0}
+  m_Radius: 0.12
+  m_Center: {x: -0.06, y: -0.09, z: 0}
 --- !u!135 &135925321875078846
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2578,8 +2582,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06
-  m_Center: {x: -0.09, y: 0, z: 0}
+  m_Radius: 0.12
+  m_Center: {x: -0.06, y: -0.09, z: 0}
 --- !u!136 &136286089358738884
 CapsuleCollider:
   m_ObjectHideFlags: 1

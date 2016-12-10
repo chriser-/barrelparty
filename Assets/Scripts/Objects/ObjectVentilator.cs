@@ -7,7 +7,7 @@ public class ObjectVentilator : ObjectBase
     public float m_strengthMax = 100.0f;
     public float m_duration = 5.0f;
 
-    private AudioSource audio;
+    private AudioSource aud;
     private float startVolume;
 
     private float timer;
@@ -18,10 +18,10 @@ public class ObjectVentilator : ObjectBase
         windController.strengthMax = m_strengthMax;
         Destroy(this.gameObject, m_duration);
         timer = 0;
-        audio = GetComponent<AudioSource>();
-        audio.pitch = 0.4f;
-        startVolume = audio.volume;
-        audio.volume = 0;
+        aud = GetComponent<AudioSource>();
+        aud.pitch = 0.4f;
+        startVolume = aud.volume;
+        aud.volume = 0;
     }
 
     private void Update()
@@ -30,16 +30,16 @@ public class ObjectVentilator : ObjectBase
 
         if (timer + 1.0f > m_duration)
         {
-            audio.pitch -= Time.deltaTime * 0.7f;
-            audio.volume -= Time.deltaTime * 1.0f;
+            aud.pitch -= Time.deltaTime * 0.7f;
+            aud.volume -= Time.deltaTime * 1.0f;
         }
         else
         {
-            if (audio.pitch < 1)
-                audio.pitch += Time.deltaTime * 0.3f;
+            if (aud.pitch < 1)
+                aud.pitch += Time.deltaTime * 0.3f;
 
-            if (audio.volume < startVolume)
-                audio.volume += Time.deltaTime * 0.3f;
+            if (aud.volume < startVolume)
+                aud.volume += Time.deltaTime * 0.3f;
 
             timer += Time.deltaTime;
         }
