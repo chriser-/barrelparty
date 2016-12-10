@@ -4,9 +4,15 @@ using UnityEngine;
 
 public abstract class ItemBase : MonoBehaviour
 {
-    public abstract IEnumerator UseItem();
+    protected abstract IEnumerator useItem();
     protected PlayerController m_Player;
     [SerializeField] protected ObjectBase m_SpawnObject;
+
+    public IEnumerator UseItem()
+    {
+        yield return StartCoroutine(useItem());
+        Destroy(gameObject);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,8 +20,16 @@ public abstract class ItemBase : MonoBehaviour
         if ((playerController = other.gameObject.GetComponent<PlayerController>()) != null)
         {
             m_Player = playerController;
-            playerController.CurrentItem = UseItem;
-            Destroy(gameObject);
+            playerController.CurrentItem = this;
+            //Destroy(gameObject);
+            Destroy(GetComponent<Renderer>());
+            Destroy(GetComponent<MeshFilter>());
+            Destroy(GetComponent<Collider>());
+
+            foreach(Transform t in transform)
+            {
+                Destroy(t.gameObject);
+            }
         }
     }
 }

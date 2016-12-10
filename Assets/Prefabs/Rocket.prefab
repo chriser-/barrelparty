@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23983265068969550}
   - component: {fileID: 136079825072159534}
   - component: {fileID: 114935572904878084}
+  - component: {fileID: 114793322724342222}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -81,6 +82,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694726987328806}
   m_Mesh: {fileID: 4300000, guid: 029d123a554969c4991865fd3ba9c9ec, type: 3}
+--- !u!114 &114793322724342222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694726987328806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bee01bb9ee7ab4088340730083a9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerEvent: 0
+  audioID: jet
+  soundType: 0
+  position: 1
+  volume: 1
+  delay: 0
+  startTime: 0
 --- !u!114 &114935572904878084
 MonoBehaviour:
   m_ObjectHideFlags: 1

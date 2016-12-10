@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool m_UseKeyboardInput = false;
 
     [SerializeField]
-    private Func<IEnumerator> m_CurrentItem;
-    public Func<IEnumerator> CurrentItem
+    private ItemBase m_CurrentItem;
+    public ItemBase CurrentItem
     {
         get { return m_CurrentItem; }
         set { m_CurrentItem = value; }
@@ -77,8 +77,8 @@ public class PlayerController : MonoBehaviour
         }
         if (m_CurrentItem != null && m_Player.GetButtonDown("UseItem"))
         {
-            StartCoroutine(m_CurrentItem());
-            //m_CurrentItem = null;
+            StartCoroutine(m_CurrentItem.UseItem());
+            m_CurrentItem = null;
         }
     }
 
