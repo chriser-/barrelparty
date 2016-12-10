@@ -11,8 +11,14 @@ public class ObjectRocket : ObjectBase
     
     public PlayerController CharController;
 
+    [SerializeField] private GameObject ExplosionPrefab;
     private bool m_isActive = false;
+    private IEnumerator destroyCoroutine;
 
+    void Awake()
+    {
+        destroyCoroutine = destroyRocket();
+    }
 
     void Update()
     {
@@ -34,9 +40,28 @@ public class ObjectRocket : ObjectBase
         {
             CharController.AttachHands(transform, transform);
             m_isActive = true;
-            StartCoroutine(destroyRocket());
+            StartCoroutine(destroyCoroutine);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        PlayerController otherController;
+        if ((otherController = collision.gameObject.GetComponent<PlayerController>()) != null)
+        {
+            otherController.ForceMultiplier += 0.2f;
+            CharController.SetInvincible(0.5f);
+            Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+            AudioController.Play("explosion", 1, 0, 0);
+            if (destroyCoroutine != null)
+                StopCoroutine(destroyCoroutine);
+            CharController.DetachHands();
+            CharController.GravityDone = false;
+            Destroy(gameObject);
+        }
+    }
+
+    
 
     private IEnumerator destroyRocket()
     {

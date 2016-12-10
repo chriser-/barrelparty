@@ -36,8 +36,12 @@ using UnityStandardAssets.Effects;
                 PlayerController character = rb.GetComponent<PlayerController>();
                 if (character != null)
                 {
-                    character.ForceMultiplier += m_MultiplierDamage;
-                    character.AddExplosionForce(explosionForce * multiplier * 0.5f, transform.position, r, 1 * multiplier * 0.05f);
+                    if (!character.IsInvincible)
+                    {
+                        character.ForceMultiplier += m_MultiplierDamage;
+                        character.AddExplosionForce(explosionForce * multiplier * 0.5f, transform.position, r, 1 * multiplier * 0.05f);
+                    }
+                    
                 }
                 
             }

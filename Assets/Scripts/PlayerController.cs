@@ -87,7 +87,17 @@ public class PlayerController : MonoBehaviour
 
     private bool m_GravityDone = true;
 
+    private bool m_IsInvincible = false;
+
     public bool IsInsideBarrel { get; private set; }
+
+    public bool IsInvincible
+    {
+        get
+        {
+            return m_IsInvincible;
+        }
+    }
 
     private Animator m_animator;
     private bool m_ikActive = false;
@@ -170,14 +180,31 @@ public class PlayerController : MonoBehaviour
 
     public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionRadius, float upwardsModifier = 0.0F, ForceMode mode = ForceMode.Impulse)
     {
+        if (m_IsInvincible)
+            return;
+        Debug.Log(gameObject.name + " Explosion");
         explosionForce *= 1f + m_ForceMultiplier;
         m_Character.Rigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier, mode);
     }
 
     public void AddImpulseForce(Vector3 force)
     {
+        if (m_IsInvincible)
+            return;
         force *= 1f + m_ForceMultiplier;
         m_Character.Rigidbody.AddForce(force, ForceMode.Impulse);
+    }
+
+    public void SetInvincible(float duration)
+    {
+        StartCoroutine(InvincibleCoroutine(duration));
+    }
+
+    private IEnumerator InvincibleCoroutine(float duration)
+    {
+        m_IsInvincible = true;
+        yield return new WaitForSeconds(duration);
+        m_IsInvincible = false;
     }
 
     private void OnAnimatorIK(int layerIndex)
