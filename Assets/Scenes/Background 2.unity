@@ -129,7 +129,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 39742556}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68b188209ba3f40d18435f6fbfec0004, type: 3}
   m_Name: 
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 302638933}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68b188209ba3f40d18435f6fbfec0004, type: 3}
   m_Name: 
@@ -289,18 +289,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: bfa5ecd3f7ee25b46944699795b2acca, type: 3}
   m_PrefabInternal: {fileID: 602211737}
---- !u!114 &342736470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 342736469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1bc3b28755ac642a562693d6a42bc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Speed: 0
 --- !u!114 &342736471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1bc3b28755ac642a562693d6a42bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 10
+  m_Speed: 20
 --- !u!1 &369061567
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +382,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 369061567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -474,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxSpeedIndex: 1.2
-  barrelController: {fileID: 342736470}
+  barrelController: {fileID: 342736471}
 --- !u!4 &1220676927
 Transform:
   m_ObjectHideFlags: 0
@@ -482,8 +470,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1220676925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 2.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 7.2, z: 2.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 302638938}
   - {fileID: 1576770841}
@@ -529,7 +517,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1576770840}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68b188209ba3f40d18435f6fbfec0004, type: 3}
   m_Name: 
