@@ -35,7 +35,10 @@ public class PlayerSelectController : MonoBehaviour
                 if (m_PlayerIdToSpawnMapping.ContainsKey(player.id))
                     readyPlayer(player.id);
                 else if (m_PlayerIdToSpawnMapping.Count < 4)
+                {
                     spawnPlayer(player.id);
+                    AudioController.Play("buttonpress");
+                }
 
                 if (m_CountdownCoroutine != null)
                 {
@@ -88,8 +91,10 @@ public class PlayerSelectController : MonoBehaviour
         for (int i = 5; i > 0; i--)
         {
             m_CountdownText.text = i.ToString();
+            AudioController.Play("Countdown");
             yield return new WaitForSeconds(1f);
         }
+        AudioController.Play("Fight");
         GameManager.StartGame();
 
     }

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
 
+    [SerializeField]
     private List<PlayerController> m_Players = new List<PlayerController>();
     [SerializeField] private PlayerController m_PlayerPrefab;
     private Dictionary<int, PlayerController> m_PlayerIdToPlayerMapping = new Dictionary<int, PlayerController>();

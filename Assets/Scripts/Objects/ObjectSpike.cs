@@ -20,7 +20,7 @@ public class ObjectSpike : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnSpike());
+        //StartCoroutine(SpawnSpike());
     }
 
     private void OnCollisionEnter(Collision coll)
