@@ -54,6 +54,8 @@ public class ObjectBomb : ObjectBase
         if(m_ExplosionChild != null)
             m_ExplosionChild.SetActive(true);
 
+        AudioController.Play("explosion", 1, 0, 0);
+
         StopCoroutine(m_ChangeMaterialCoroutine);
 
         yield return new WaitForSeconds(2f);   
