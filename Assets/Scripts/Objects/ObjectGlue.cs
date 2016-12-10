@@ -7,13 +7,17 @@ public class ObjectGlue : ObjectBase
 {
     [SerializeField] private float m_MultiplierDamage = 0.2f;
     private List<PlayerController> m_Players = new List<PlayerController>();
+    [SerializeField] private float m_Lifetime;
+    [SerializeField] private float m_PlayerGlueTime;
+    private IEnumerator destroyCoroutine;
 
     void Start()
     {
         //Glue has to be parent of barrel
         transform.SetParent(FindObjectOfType<BarrelController>().transform);
         //disable glue after a while
-        StartCoroutine(disableGlue());
+        destroyCoroutine = disableGlue();
+        StartCoroutine(destroyCoroutine);
     }
 
     /*
@@ -50,16 +54,23 @@ public class ObjectGlue : ObjectBase
             playerController.transform.SetParent(FindObjectOfType<BarrelController>().transform);
             //restrict input
             playerController.DisableInput = true;
-            
+            StopCoroutine(destroyCoroutine);
+            StartCoroutine(playerGlue());
         }
     }
 
     private IEnumerator disableGlue()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(m_Lifetime);
         m_Players.ForEach(removeGlue);
         Destroy(gameObject);
+    }
 
+    private IEnumerator playerGlue()
+    {
+        yield return new WaitForSeconds(m_PlayerGlueTime);
+        m_Players.ForEach(removeGlue);
+        Destroy(gameObject);
     }
 
     private void removeGlue(PlayerController playerController)
