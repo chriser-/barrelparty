@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 224734694646094996}
   - component: {fileID: 114666943890426788}
   m_Layer: 5
-  m_Name: HealthPanel 1
+  m_Name: HealthPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
