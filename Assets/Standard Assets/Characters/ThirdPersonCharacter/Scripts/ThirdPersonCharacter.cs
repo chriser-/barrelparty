@@ -29,6 +29,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
+	    private float m_InitJumpPower;
+
+	    public float JumpPower
+	    {
+	        get { return m_JumpPower; }
+	        set { m_JumpPower = Mathf.Max(0f, value); }
+	    }
 
 	    void Awake()
 	    {
@@ -44,12 +51,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
+		    m_InitJumpPower = m_JumpPower;
 		}
 
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
-
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
@@ -75,8 +82,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			UpdateAnimator(move);
 		}
 
+	    public void ResetJumpPower()
+	    {
+	        m_JumpPower = m_InitJumpPower;
+	    }
 
-		void ScaleCapsuleForCrouching(bool crouch)
+
+	    void ScaleCapsuleForCrouching(bool crouch)
 		{
 			if (m_IsGrounded && crouch)
 			{

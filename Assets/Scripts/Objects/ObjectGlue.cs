@@ -6,7 +6,6 @@ using UnityEngine;
 public class ObjectGlue : ObjectBase
 {
     [SerializeField] private float m_MultiplierDamage = 0.2f;
-    [SerializeField] private float m_ForceFactor = 3f;
     private List<PlayerController> m_Players = new List<PlayerController>();
 
     void Start()
@@ -80,6 +79,6 @@ public class ObjectGlue : ObjectBase
                 playerController.ForceMultiplier += m_MultiplierDamage;
         }
 
-        playerController.GravityDone = false;      
+        //playerController.GravityDone = false;      
     }
 }
