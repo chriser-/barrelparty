@@ -2080,6 +2080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Speed: 20
+  m_SpeedGainPerSecond: 0.1
 --- !u!64 &1357829083
 MeshCollider:
   m_ObjectHideFlags: 0
