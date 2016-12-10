@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     private bool m_Jump; // the world-relative desired move direction, calculated from the camForward and user input.
 
     [SerializeField]
-    private int m_HealthPoints = 100;
-    public int HealthPoints
+    private float m_ForceMultiplier = 0f;
+    public float ForceMultiplier
     {
-        get { return m_HealthPoints; }
-        set { m_HealthPoints = Mathf.Clamp(value, 0, 100); }
+        get { return m_ForceMultiplier; }
+        set { m_ForceMultiplier = Mathf.Clamp(value, 0, 3); }
     }
 
     private Player m_Player;
@@ -125,6 +125,19 @@ public class PlayerController : MonoBehaviour
 
         }
 
+    }
+
+
+    public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionRadius, float upwardsModifier = 0.0F, ForceMode mode = ForceMode.Impulse)
+    {
+        explosionForce *= 1f + m_ForceMultiplier;
+        m_Character.Rigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier, mode);
+    }
+
+    public void AddImpulseForce(Vector3 force)
+    {
+        force *= 1f + m_ForceMultiplier;
+        m_Character.Rigidbody.AddForce(force, ForceMode.Impulse);
     }
 
     private void OnAnimatorIK(int layerIndex)
