@@ -41,6 +41,7 @@ public class ObjectRocket : ObjectBase
             CharController.AttachHands(transform, transform);
             m_isActive = true;
             StartCoroutine(destroyCoroutine);
+            CharController.SetInvincible(true);
         }
     }
 
@@ -69,5 +70,6 @@ public class ObjectRocket : ObjectBase
         CharController.DetachHands();
         CharController.GravityDone = false;
         Destroy(gameObject);
+        CharController.SetInvincible(false);
     }
 }
