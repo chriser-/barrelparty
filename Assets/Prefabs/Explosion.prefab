@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionForce: 4
+  m_Multiplier: 4
   m_MultiplierDamage: 0.2
 --- !u!198 &198050334636838992
 ParticleSystem:
