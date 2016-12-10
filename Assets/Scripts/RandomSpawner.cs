@@ -15,8 +15,7 @@ public class RandomSpawner : MonoBehaviour {
 
     public SpawnGroup[] spawn;
     public GameObject barrel;
-    public Vector3 spawnPos;
-    public Vector2 startXendX;
+    public Vector2 startZendZ;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +33,7 @@ public class RandomSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Random.InitState((int)System.DateTime.Now.Ticks);
         if (Random.Range(0f, 1f) > 0.99f)
         {
             float r = Random.Range(0f, 1f);
@@ -58,12 +58,13 @@ public class RandomSpawner : MonoBehaviour {
     {
         if (g.stickToBarrel)
         {
-            Instantiate(g.SpawnObject,  new Vector3(Random.Range(spawnPos.x - startXendX.x, spawnPos.x + startXendX.y), spawnPos.y, spawnPos.z), g.SpawnObject.transform.rotation, barrel.transform);
+            
+            Instantiate(g.SpawnObject,  new Vector3(transform.position.x, transform.position.y, Random.Range(transform.position.z - startZendZ.x, transform.position.z + startZendZ.y)), g.SpawnObject.transform.rotation, barrel.transform);
 
         }
         else
         {
-            Instantiate(g.SpawnObject, new Vector3(Random.Range(spawnPos.x - startXendX.x, spawnPos.x + startXendX.y), spawnPos.y, spawnPos.z), g.SpawnObject.transform.rotation);
+            Instantiate(g.SpawnObject, new Vector3(transform.position.x, transform.position.y, Random.Range(transform.position.z - startZendZ.x, transform.position.z + startZendZ.y)), g.SpawnObject.transform.rotation);
         }
     }
 }
