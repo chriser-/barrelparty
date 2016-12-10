@@ -108,3 +108,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpikeForce: 10
   m_Lifetime: 30
+  m_MultiplierDamage: 0.2
