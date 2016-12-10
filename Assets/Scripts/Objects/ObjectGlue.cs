@@ -9,7 +9,7 @@ public class ObjectGlue : ObjectBase
     void Start()
     {
         //Glue has to be parent of barrel
-        transform.SetParent(FindObjectOfType<BarrelRotateController>().transform);
+        transform.SetParent(FindObjectOfType<BarrelController>().transform);
         //disable glue after a while
         StartCoroutine(disableGlue());
     }
@@ -45,7 +45,7 @@ public class ObjectGlue : ObjectBase
             //Fix Rigidbody Position
             playerController.Character.Rigidbody.constraints |= RigidbodyConstraints.FreezePosition;
             //Set Player as Parent of barrel
-            playerController.transform.SetParent(FindObjectOfType<BarrelRotateController>().transform);
+            playerController.transform.SetParent(FindObjectOfType<BarrelController>().transform);
             //restrict input
             playerController.DisableInput = true;
             

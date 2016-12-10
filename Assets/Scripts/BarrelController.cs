@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-public class BarrelRotateController : MonoBehaviour
+public class BarrelController : MonoBehaviour
 {
     public float Speed {
         get { return m_Speed; }
     }
 
     [SerializeField] private float m_Speed;
-    public Collider Collider;
 
 	public float getSpeed(){
 		return m_Speed;
@@ -18,7 +17,7 @@ public class BarrelRotateController : MonoBehaviour
 
     void Awake()
     {
-        Collider = GetComponent<Collider>();
+        
     }
 	
     void Update()
@@ -42,6 +41,23 @@ public class BarrelRotateController : MonoBehaviour
         if ((player = collision.gameObject.GetComponent<PlayerController>()) != null)
         {
             player.Character.AddBarrelFriction(m_Speed*Time.deltaTime*100f);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        PlayerController player;
+        if ((player = other.gameObject.GetComponent<PlayerController>()) != null)
+        {
+            player.Hearts--;
+            if (player.Hearts > 0)
+            {
+                player.transform.position = Vector3.zero;
+            }
+            else
+            {
+                player.gameObject.SetActive(false);
+            }
         }
     }
 }
