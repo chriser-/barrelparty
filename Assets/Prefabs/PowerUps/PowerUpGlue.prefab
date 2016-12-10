@@ -22,6 +22,11 @@ GameObject:
   - component: {fileID: 33162618988258926}
   - component: {fileID: 135692366512885214}
   - component: {fileID: 23775623964002236}
+<<<<<<< Updated upstream
+  - component: {fileID: 114058059111383296}
+=======
+  - component: {fileID: 114738627354140024}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: PowerUpGlue
   m_TagString: Untagged
@@ -164,6 +169,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rotationPivot: {fileID: 4307168718533134}
   m_speed: 1
+<<<<<<< Updated upstream
+--- !u!114 &114058059111383296
+=======
+--- !u!114 &114738627354140024
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310606502494588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147cd57cd86e3854da566b12194cb2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+  m_SpawnObject: {fileID: 114002105074515868, guid: 25a0d2ec47ebc5e4e9582972ed986770,
+    type: 2}
+=======
+  m_SpawnObject: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!135 &135692366512885214
 SphereCollider:
   m_ObjectHideFlags: 1
