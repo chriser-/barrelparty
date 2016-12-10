@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33132627286411148}
   - component: {fileID: 135609822028259980}
   - component: {fileID: 23719261562202082}
+  - component: {fileID: 114148017832495790}
   m_Layer: 0
   m_Name: PowerUpTrampolin
   m_TagString: Untagged
@@ -150,6 +151,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1132205999346284}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114148017832495790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132205999346284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d3cf49655a0aa4dabe4668ded45933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnObject: {fileID: 0}
+  m_JumpMultiplicator: 1.2
+  m_Duration: 3
 --- !u!135 &135609822028259980
 SphereCollider:
   m_ObjectHideFlags: 1
