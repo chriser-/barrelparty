@@ -11,6 +11,6 @@ public class ObjectVentilator : ObjectBase
     {
         WindzoneController windController = GetComponentInChildren<WindzoneController>();
         windController.strengthMax = m_strengthMax;
-        Destroy(windController, m_duration);
+        //Destroy(gameObject, m_duration);
     }
 }
