@@ -2537,8 +2537,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c72b4ed1c49f04b9fea97b317e27e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HealthPoints: 100
-  m_UseKeyboardInput: 1
+  m_ForceMultiplier: 0
+  m_Hearts: 5
+  m_UseKeyboardInput: 0
+  m_CurrentItem: {fileID: 0}
   m_DisableInput: 0
 --- !u!114 &114654917474993944
 MonoBehaviour:
@@ -2568,8 +2570,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.12
-  m_Center: {x: -0.06, y: -0.09, z: 0}
+  m_Radius: 0.01
+  m_Center: {x: -0.1, y: -0.15, z: 0}
 --- !u!135 &135925321875078846
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2580,8 +2582,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.12
-  m_Center: {x: -0.06, y: -0.09, z: 0}
+  m_Radius: 0.01
+  m_Center: {x: -0.1, y: -0.15, z: 0}
 --- !u!136 &136286089358738884
 CapsuleCollider:
   m_ObjectHideFlags: 1
