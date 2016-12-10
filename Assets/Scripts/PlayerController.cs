@@ -79,7 +79,8 @@ public class PlayerController : MonoBehaviour
     }
     private bool m_GravityDone = true;
 
-    private float m_OutOfFrustumTimer = 2f;
+    private const float m_OutOfFrustumTimerMax = 1f;
+    private float m_OutOfFrustumTimer = m_OutOfFrustumTimerMax;
 
     private Animator m_animator;
     private bool m_ikActive = false;
@@ -96,7 +97,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        //m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count - 1);
+        if (m_Player == null && GameManager.Instance.Players.Count == 1)
+        {
+            m_Player = ReInput.players.GetPlayer(4); //Keyboard Player
+        }
     }
 
     private void Update()
@@ -125,12 +129,12 @@ public class PlayerController : MonoBehaviour
             if (m_OutOfFrustumTimer <= 0)
             {
                 Die();
-                m_OutOfFrustumTimer = 2f;
+                m_OutOfFrustumTimer = m_OutOfFrustumTimerMax;
             }
         }
         else
         {
-            m_OutOfFrustumTimer = 2f;
+            m_OutOfFrustumTimer = m_OutOfFrustumTimerMax;
         }
         if (DisableInput)
         {
