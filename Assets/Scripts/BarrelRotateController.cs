@@ -5,7 +5,6 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class BarrelRotateController : MonoBehaviour
 {
-
     [SerializeField] private float m_Speed;
 	
     void Update()
