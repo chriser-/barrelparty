@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_Move;
     private bool m_Jump; // the world-relative desired move direction, calculated from the camForward and user input.
 
+    private Vector3 startposition;
+
     [SerializeField]
     private float m_ForceMultiplier = 0f;
     public float ForceMultiplier
@@ -65,6 +67,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.Players.Add(this);
+        startposition = transform.position;
     }
 
     private void Start()
@@ -91,6 +94,11 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(m_CurrentItem.UseItem());
             m_CurrentItem = null;
+        }
+
+        if (transform.position.y < -10)
+        {
+            OnDeath();
         }
     }
 
@@ -215,5 +223,11 @@ public class PlayerController : MonoBehaviour
         DisableInput = false;
         Collider c = GetComponent<Collider>();
         c.enabled = true;
+    }
+
+    public void OnDeath()
+    {
+        AudioController.Play("Death");
+        transform.position = startposition;
     }
 }
