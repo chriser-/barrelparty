@@ -17,6 +17,8 @@ public class PlayAudioOwn : MonoBehaviour {
         OnDisable
     }
 
+    public string TriggerTag = "";
+
     protected void Start()
     {
         _CheckEvent(EventType.Start);
@@ -40,14 +42,16 @@ public class PlayAudioOwn : MonoBehaviour {
         _CheckEvent(EventType.OnCollisionExit);
     }
 
-    protected void OnTriggerEnter()
+    protected void OnTriggerEnter(Collider c)
     {
-        _CheckEvent(EventType.OnTriggerEnter);
+        if (TriggerTag != "" || c.gameObject.tag == TriggerTag)
+            _CheckEvent(EventType.OnTriggerEnter);
     }
 
-    protected void OnTriggerExit()
+    protected void OnTriggerExit(Collider c)
     {
-        _CheckEvent(EventType.OnTriggerExit);
+        if (TriggerTag != "" || c.gameObject.tag == TriggerTag)
+            _CheckEvent(EventType.OnTriggerExit);
     }
 
     protected void OnEnable()
