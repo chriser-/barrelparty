@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33727700078977872}
   - component: {fileID: 135573734786658098}
   - component: {fileID: 23477879598744458}
+  - component: {fileID: 114260653869363972}
   m_Layer: 0
   m_Name: PowerUpBomb
   m_TagString: Untagged
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086293461261590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: -1.55}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4529606058494380}
@@ -151,6 +152,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086293461261590}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114260653869363972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086293461261590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50effb313d67135479441932ec95e9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnObject: {fileID: 114590091203535010, guid: ad5a526f26f45aa479e2f9ba3190bea5,
+    type: 2}
 --- !u!114 &114541768370699634
 MonoBehaviour:
   m_ObjectHideFlags: 1
