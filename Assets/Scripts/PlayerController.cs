@@ -74,20 +74,12 @@ public class PlayerController : MonoBehaviour
 
     public bool GravityDone
     {
-        get
-        {
-            return m_GravityDone;
-        }
-
-        set
-        {
-            m_GravityDone = value;
-        }
+        get { return m_GravityDone; }
+        set { m_GravityDone = value; }
     }
-
     private bool m_GravityDone = true;
 
-    public bool IsInsideBarrel { get; private set; }
+    private float m_OutOfFrustumTimer = 2f;
 
     private Animator m_animator;
     private bool m_ikActive = false;
@@ -99,7 +91,6 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.Players.Add(this);
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<ThirdPersonCharacter>();
-        IsInsideBarrel = true; //TODO
         m_animator = GetComponent<Animator>();
     }
 
@@ -127,6 +118,20 @@ public class PlayerController : MonoBehaviour
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        if (!GeometryUtility.TestPlanesAABB(planes, Character.Capsule.bounds))
+        {
+            m_OutOfFrustumTimer -= Time.fixedDeltaTime;
+            if (m_OutOfFrustumTimer <= 0)
+            {
+                Die();
+                m_OutOfFrustumTimer = 2f;
+            }
+        }
+        else
+        {
+            m_OutOfFrustumTimer = 2f;
+        }
         if (DisableInput)
         {
             return;
@@ -251,5 +256,18 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = !controlable;
         GetComponent<Collider>().enabled = controlable;
         GetComponents<MonoBehaviour>().All(b => { b.enabled = controlable; return true; });
+    }
+
+    public void Die()
+    {
+        Hearts--;
+        if (Hearts > 0)
+        {
+            transform.position = Vector3.zero;
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
