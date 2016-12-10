@@ -11,7 +11,7 @@ Shader "Unlit/PowerUp"
 		Tags { "RenderType"="Transparent" "Queue"="Transparent"}
 
 		Blend SrcAlpha OneMinusSrcAlpha
-		ZWrite Off ZTest Always
+		ZWrite Off
 
 		LOD 100
 
