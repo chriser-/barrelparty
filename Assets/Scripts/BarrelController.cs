@@ -43,9 +43,10 @@ public class BarrelController : MonoBehaviour
             player.Character.AddBarrelFriction(m_Speed*Time.deltaTime*100f);
         }
     }
-
+    
     private void OnTriggerExit(Collider other)
     {
+        
         PlayerController player;
         if ((player = other.gameObject.GetComponent<PlayerController>()) != null)
         {
@@ -60,4 +61,5 @@ public class BarrelController : MonoBehaviour
             }
         }
     }
+    
 }
