@@ -50,6 +50,7 @@ public class BarrelController : MonoBehaviour
         PlayerController player;
         if ((player = other.gameObject.GetComponent<PlayerController>()) != null)
         {
+            AudioController.Play("Death");
             player.Hearts--;
             if (player.Hearts > 0)
             {

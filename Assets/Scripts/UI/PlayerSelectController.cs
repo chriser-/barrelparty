@@ -88,8 +88,10 @@ public class PlayerSelectController : MonoBehaviour
         for (int i = 5; i > 0; i--)
         {
             m_CountdownText.text = i.ToString();
+            AudioController.Play("Countdown");
             yield return new WaitForSeconds(1f);
         }
+        AudioController.Play("Fight");
         GameManager.StartGame();
 
     }
