@@ -1501,6 +1501,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 162460, guid: cd6a54f19272cce449c4e75fe2f74373, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd6a54f19272cce449c4e75fe2f74373, type: 2}
   m_IsPrefabParent: 0
@@ -5582,6 +5586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e2e41c1cca8c545b8db9fea06b2501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   audioID: buttonpress
 --- !u!4 &1559591921
 Transform:
