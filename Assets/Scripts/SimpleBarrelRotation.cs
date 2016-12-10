@@ -15,6 +15,9 @@ public class SimpleBarrelRotation : MonoBehaviour {
 	void Update () {
         transform.Rotate(Time.deltaTime * speed, 0, 0);
         if (Input.GetKeyDown("s"))
+        {
+            AudioController.Play("buttonpress");
             SceneManager.LoadScene(1);
+        }
     }
 }
