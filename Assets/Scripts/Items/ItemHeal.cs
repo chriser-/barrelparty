@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class ItemHeal : ItemBase
 {
-    [SerializeField] private int m_HPGain;
+    [SerializeField] private float m_HPGain;
 
     public override IEnumerator UseItem()
     {
-        m_Player.HealthPoints += m_HPGain;
+        m_Player.ForceMultiplier -= m_HPGain;
         yield return null;
     }
 }

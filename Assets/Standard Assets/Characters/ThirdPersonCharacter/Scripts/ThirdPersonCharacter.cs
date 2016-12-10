@@ -166,7 +166,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
 			{
 				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x*1.2f, Physics.gravity.y < 0 ? m_JumpPower : -m_JumpPower, m_Rigidbody.velocity.z*1.2f);
+				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x*1.2f, (Physics.gravity.y < 0 ? m_JumpPower : -m_JumpPower), m_Rigidbody.velocity.z*1.2f);
                 AudioController.Play("jump", 1, 0, 0);
                 m_IsGrounded = false;
 				//m_Animator.applyRootMotion = false;
