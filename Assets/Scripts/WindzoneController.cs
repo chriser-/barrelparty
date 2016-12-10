@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class WindzoneController : MonoBehaviour
 {
-    public float m_strengthMax = 100.0f;
+    private float m_strengthMax = 100.0f;
+    public float strengthMax
+    {
+        get { return m_strengthMax;  }
+        set { m_strengthMax = Mathf.Max(value, 0.0f); }
+    }
     private float m_strength = 0.0f;
 
     // Maybe add force should be shifted into FixedUpdate()
