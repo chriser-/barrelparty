@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33583397080770130}
   - component: {fileID: 135703472958295110}
   - component: {fileID: 23975428234185642}
+  - component: {fileID: 114719633606979774}
   m_Layer: 0
   m_Name: PowerUpVentilator
   m_TagString: Untagged
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298001077790540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.65, z: -2.29}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4374012481264274}
@@ -164,6 +165,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rotationPivot: {fileID: 4450406514028692}
   m_speed: 1
+--- !u!114 &114719633606979774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1298001077790540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5091b064c1a8b124e8a0f6b1315a2e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnObject: {fileID: 114231323884846208, guid: aaa0a8dbd3ff9474ab12198e108019fe,
+    type: 2}
 --- !u!135 &135703472958295110
 SphereCollider:
   m_ObjectHideFlags: 1
