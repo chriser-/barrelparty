@@ -35,7 +35,10 @@ public class PlayerSelectController : MonoBehaviour
                 if (m_PlayerIdToSpawnMapping.ContainsKey(player.id))
                     readyPlayer(player.id);
                 else if (m_PlayerIdToSpawnMapping.Count < 4)
+                {
                     spawnPlayer(player.id);
+                    AudioController.Play("buttonpress");
+                }
 
                 if (m_CountdownCoroutine != null)
                 {
