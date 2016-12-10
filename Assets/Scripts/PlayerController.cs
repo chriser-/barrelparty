@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
             m_Player = ReInput.players.GetPlayer(m_PlayerId);
         }
     }
-    private int m_PlayerNum = 1;
+    [SerializeField] private int m_PlayerNum = 1;
     public int PlayerNum
     {
         get { return m_PlayerNum; }
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count - 1);
+        //m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count - 1);
     }
 
     private void Update()
