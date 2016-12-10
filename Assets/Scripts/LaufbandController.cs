@@ -8,15 +8,15 @@ public class LaufbandController : MonoBehaviour
     public float m_speedTexture = 0.02f;
     public GameObject m_textureMat;
 
+    private Renderer rend;
+
     private void Start()
     {
         Renderer rend = m_textureMat.GetComponent<Renderer>();
-        Texture tex = rend.material.GetTexture("_MainTex");
     }
 
     void FixedUpdate()
     {
-        Renderer rend = m_textureMat.GetComponent<Renderer>();
         Vector2 offset = rend.material.GetTextureOffset("_MainTex");
         offset.x += m_speedTexture;
         rend.material.SetTextureOffset("_MainTex", offset);

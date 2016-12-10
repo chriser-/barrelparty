@@ -49,14 +49,21 @@ public class PlayerController : MonoBehaviour
     private BarrelRotateController m_Barrel;
     private bool m_GravityDone = true;
 
+    private Animator m_animator;
+    private bool m_ikActive = false;
+    private Transform m_handL;
+    private Transform m_handR;
+
     private void Start()
     {
         GameManager.Instance.Players.Add(this);
-        m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count-1);
+        m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count - 1);
 
         m_Barrel = FindObjectOfType<BarrelRotateController>();
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<ThirdPersonCharacter>();
+
+        m_animator = GetComponent<Animator>();
     }
 
 
@@ -89,7 +96,7 @@ public class PlayerController : MonoBehaviour
         //bool crouch = Input.GetKey(KeyCode.C);
 
         // we use world-relative directions in the case of no main camera
-        m_Move = v*Vector3.forward + h*Vector3.right;
+        m_Move = v * Vector3.forward + h * Vector3.right;
 
         // pass all parameters to the character control script
         m_Character.Move(m_Move, false, m_Jump);
@@ -102,21 +109,86 @@ public class PlayerController : MonoBehaviour
             if (Physics.gravity.y > 0)
             {
                 Vector3 targetUp = Vector3.Slerp(Vector3.up, Vector3.down,
-                    rayBottom.distance/((rayTop.distance + rayBottom.distance)*0.8f));
+                    rayBottom.distance / ((rayTop.distance + rayBottom.distance) * 0.8f));
                 transform.rotation = Quaternion.LookRotation(transform.forward, targetUp);
                 m_GravityDone = false;
             }
-            else if(!m_GravityDone)
+            else if (!m_GravityDone)
             {
                 Vector3 targetUp = Vector3.Slerp(Vector3.down, Vector3.up,
                     rayTop.distance / ((rayTop.distance + rayBottom.distance) * 0.8f));
                 transform.rotation = Quaternion.LookRotation(transform.forward, targetUp);
                 m_GravityDone = targetUp == Vector3.up;
-                if(m_GravityDone)
+                if (m_GravityDone)
                     transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
             }
 
         }
-        
+
+    }
+
+    private void OnAnimatorIK(int layerIndex)
+    {
+        if (m_animator)
+        {
+            if (m_ikActive)
+            {
+                if (m_handL != null)
+                {
+                    m_animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+                    m_animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
+                    m_animator.SetIKPosition(AvatarIKGoal.LeftHand, m_handL.position);
+                    m_animator.SetIKRotation(AvatarIKGoal.LeftHand, m_handL.rotation);
+                }
+                if (m_handR != null)
+                {
+                    m_animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+                    m_animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+                    m_animator.SetIKPosition(AvatarIKGoal.RightHand, m_handR.position);
+                    m_animator.SetIKRotation(AvatarIKGoal.RightHand, m_handR.rotation);
+                }
+            }
+            else
+            {
+                m_animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0);
+                m_animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0);
+                m_animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+                m_animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 0);
+            }
+        }
+    }
+
+    public void AttachHands(Transform handL, Transform handR)
+    {
+        m_handL = handL;
+        m_handR = handR;
+        m_ikActive = true;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        m_animator.Play("Airborne");
+        transform.position = handL.position - new Vector3(handL.lossyScale.x, 0, 0);
+        transform.LookAt(handL);
+        transform.Rotate(Vector3.right, 90.0f);
+        transform.parent = handL;
+        DisableInput = true;
+        Collider c = GetComponent<Collider>();
+        c.enabled = false;
+    }
+
+    public void DetachHands()
+    {
+        m_ikActive = false;
+        m_handL = null;
+        m_handR = null;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.useGravity = true;
+        transform.Rotate(Vector3.right, -90.0f);
+        transform.parent = null;
+        DisableInput = false;
+        Collider c = GetComponent<Collider>();
+        c.enabled = true;
     }
 }
