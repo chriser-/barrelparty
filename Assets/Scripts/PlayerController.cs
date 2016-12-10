@@ -296,13 +296,22 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         Hearts--;
+        ForceMultiplier = 0;
         if (Hearts > 0)
         {
+            m_IsInvincible = true;
+            StartCoroutine(invincibleSpawnTimer());
             transform.position = Vector3.zero;
         }
         else
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator invincibleSpawnTimer()
+    {
+        yield return new WaitForSeconds(2f);
+        m_IsInvincible = false;
     }
 }

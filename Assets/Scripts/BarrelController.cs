@@ -5,15 +5,12 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class BarrelController : MonoBehaviour
 {
-    public float Speed {
+    public float Speed
+    {
         get { return m_Speed; }
     }
-
     [SerializeField] private float m_Speed;
-
-	public float getSpeed(){
-		return m_Speed;
-	}
+    [SerializeField] private float m_SpeedGainPerSecond = 0.1f;
 
     void Awake()
     {
@@ -23,6 +20,7 @@ public class BarrelController : MonoBehaviour
     void Update()
     {
         transform.Rotate(Time.deltaTime*m_Speed, 0, 0);
+        m_Speed += m_SpeedGainPerSecond*Time.deltaTime;
     }
 
     private void OnCollisionExit(Collision collision)
