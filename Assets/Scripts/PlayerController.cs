@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_Move;
     private bool m_Jump; // the world-relative desired move direction, calculated from the camForward and user input.
 
-    private Vector3 startposition;
-
     [SerializeField]
     private float m_ForceMultiplier = 0f;
     public float ForceMultiplier
@@ -69,6 +67,7 @@ public class PlayerController : MonoBehaviour
         get { return m_DisableInput; }
         set
         {
+            Debug.Log("DisableInput");
             m_DisableInput = value;
             m_Character.Move(Vector3.zero, false, false);
         }
@@ -98,7 +97,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.Players.Add(this);
-        startposition = transform.position;
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<ThirdPersonCharacter>();
 
@@ -123,11 +121,6 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(m_CurrentItem.UseItem());
             m_CurrentItem = null;
-        }
-
-        if (transform.position.y < -10)
-        {
-            OnDeath();
         }
     }
 
@@ -254,11 +247,6 @@ public class PlayerController : MonoBehaviour
         c.enabled = true;
     }
 
-    public void OnDeath()
-    {
-        AudioController.Play("Death");
-        transform.position = startposition;
-    }
     public void SetControlable(bool controlable)
     {
         //m_Character.Move(Vector3.zero, false, false);
