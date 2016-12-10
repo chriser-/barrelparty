@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class ObjectBase : MonoBehaviour
 {
-    public ObjectBase PlaceObject(Vector3 position)
+    public T PlaceObject<T>(Vector3 position) where T : ObjectBase
     {
         ObjectBase newObjectBase = Instantiate(this);
         newObjectBase.transform.position = position;
-        return newObjectBase;
+        return (T)newObjectBase;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
@@ -26,11 +27,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool m_UseKeyboardInput = false;
 
     [SerializeField]
-    private ItemBase m_CurrentItem;
-    public ItemBase CurrentItem
+    private Action m_CurrentItem;
+    public Action CurrentItem
     {
         get { return m_CurrentItem; }
         set { m_CurrentItem = value; }
+    }
+
+    [SerializeField] private bool m_DisableInput = false;
+    public bool DisableInput
+    {
+        get { return m_DisableInput; }
+        set
+        {
+            m_DisableInput = value;
+            m_Character.Move(Vector3.zero, false, false);
+        }
     }
 
     private void Start()
@@ -45,16 +57,28 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (DisableInput)
+            return;
         if (!m_Jump)
         {
-            m_Jump = m_Player.GetButtonDown("Jump");    
+            m_Jump = m_Player.GetButtonDown("Jump");
         }
+        if (m_CurrentItem != null && m_Player.GetButtonDown("UseItem"))
+        {
+            m_CurrentItem.Invoke();
+            m_CurrentItem = null;
+        }
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.y, transform.rotation.z), Time.deltaTime*3f);
     }
 
 
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
+        if (DisableInput)
+        {
+            return;
+        }
         // read inputs
         float h = m_Player.GetAxis("Horizontal");
         float v = m_Player.GetAxis("Vertical");
