@@ -6,10 +6,6 @@ using UnityEngine;
 public class ItemHeal : ItemBase
 {
     [SerializeField] private int m_HPGain;
-    public override void PickUpItem()
-    {
-        UseItem();
-    }
 
     public override void UseItem()
     {
