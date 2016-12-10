@@ -92,7 +92,6 @@ public class PlayerController : MonoBehaviour
         m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count - 1);
     }
 
-
     private void Update()
     {
         if (DisableInput)
