@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        AudioController.PlayMusic("Game Music", 1, 0, 0);
+        Cursor.visible = false;
     }
 
     void Update()
@@ -73,6 +73,7 @@ public class GameManager : Singleton<GameManager>
     {
         LoadScene(3, () =>
         {
+            AudioController.PlayMusic("Game Music");
             Instance.Players.ForEach(p =>
             {
                 p.SetControlable(true);
