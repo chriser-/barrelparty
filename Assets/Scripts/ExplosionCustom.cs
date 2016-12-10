@@ -1,13 +1,15 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Effects;
 
-namespace UnityStandardAssets.Effects
-{
-    public class ExplosionPhysicsForce : MonoBehaviour
+
+    public class ExplosionCustom : MonoBehaviour
     {
         public float explosionForce = 4;
+
+        [SerializeField] private float m_MultiplierDamage = 0.2f;
 
 
         private IEnumerator Start()
@@ -18,7 +20,7 @@ namespace UnityStandardAssets.Effects
 
             float multiplier = GetComponent<ParticleSystemMultiplier>().multiplier;
 
-            float r = 10*multiplier;
+            float r = 10 * multiplier;
             var cols = Physics.OverlapSphere(transform.position, r);
             var rigidbodies = new List<Rigidbody>();
             foreach (var col in cols)
@@ -26,11 +28,18 @@ namespace UnityStandardAssets.Effects
                 if (col.attachedRigidbody != null && !rigidbodies.Contains(col.attachedRigidbody))
                 {
                     rigidbodies.Add(col.attachedRigidbody);
+                    
                 }
             }
             foreach (var rb in rigidbodies)
             {
-                rb.AddExplosionForce(explosionForce * multiplier * 0.5f, transform.position, r, 1 * multiplier * 0.05f, ForceMode.Impulse);
+                PlayerController character = rb.GetComponent<PlayerController>();
+                if (character != null)
+                {
+                    character.ForceMultiplier += m_MultiplierDamage;
+                    character.AddExplosionForce(explosionForce * multiplier * 0.5f, transform.position, r, 1 * multiplier * 0.05f);
+                }
+                
             }
 
             yield return new WaitForSeconds(3);
@@ -38,4 +47,3 @@ namespace UnityStandardAssets.Effects
             Destroy(gameObject);
         }
     }
-}
