@@ -10,14 +10,13 @@ public class ObjectBomb : ObjectBase
     [SerializeField]
     float m_ExplosionTime = 3f;
 
+    [SerializeField] private GameObject ExplosionParticle;
     [SerializeField] private Material m_BeforeExplosionMat;
     [SerializeField] private Material m_DefaultMaterial;
 
     private Renderer m_Renderer;
 
     private SphereCollider m_TriggerCollider;
-
-    private GameObject m_ExplosionChild;
 
     private IEnumerator m_ChangeMaterialCoroutine;
 
@@ -33,8 +32,6 @@ public class ObjectBomb : ObjectBase
         StartCoroutine(m_ChangeMaterialCoroutine);
 
         StartCoroutine(ExplodeCoroutine());
-
-        m_ExplosionChild = transform.GetChild(0).gameObject;
     }
 
     IEnumerator ExplodeCoroutine()
@@ -51,14 +48,13 @@ public class ObjectBomb : ObjectBase
 
         yield return new WaitForSeconds(0.01f);
 
-        if(m_ExplosionChild != null)
-            m_ExplosionChild.SetActive(true);
-
         AudioController.Play("explosion", 1, 0, 0);
 
-        StopCoroutine(m_ChangeMaterialCoroutine);
+        if (ExplosionParticle != null)
+            Instantiate(ExplosionParticle, transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(2f);   
+        StopCoroutine(m_ChangeMaterialCoroutine);
+        yield return null;
 
         Destroy(gameObject);
     }
