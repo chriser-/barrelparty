@@ -7,8 +7,9 @@ public class ItemHeal : ItemBase
 {
     [SerializeField] private int m_HPGain;
 
-    public override void UseItem()
+    public override IEnumerator UseItem()
     {
         m_Player.HealthPoints += m_HPGain;
+        yield return null;
     }
 }

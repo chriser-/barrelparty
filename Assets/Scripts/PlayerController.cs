@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 using Rewired;
@@ -27,8 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool m_UseKeyboardInput = false;
 
     [SerializeField]
-    private Action m_CurrentItem;
-    public Action CurrentItem
+    private Func<IEnumerator> m_CurrentItem;
+    public Func<IEnumerator> CurrentItem
     {
         get { return m_CurrentItem; }
         set { m_CurrentItem = value; }
@@ -45,11 +46,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private BarrelRotateController m_Barrel;
+    private bool m_GravityDone = true;
+
     private void Start()
     {
         GameManager.Instance.Players.Add(this);
         m_Player = m_UseKeyboardInput ? ReInput.players.GetPlayer(4) : ReInput.players.GetPlayer(GameManager.Instance.Players.Count-1);
 
+        m_Barrel = FindObjectOfType<BarrelRotateController>();
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<ThirdPersonCharacter>();
     }
@@ -65,10 +70,9 @@ public class PlayerController : MonoBehaviour
         }
         if (m_CurrentItem != null && m_Player.GetButtonDown("UseItem"))
         {
-            m_CurrentItem.Invoke();
-            m_CurrentItem = null;
+            StartCoroutine(m_CurrentItem());
+            //m_CurrentItem = null;
         }
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.y, transform.rotation.z), Time.deltaTime*3f);
     }
 
 
@@ -90,5 +94,29 @@ public class PlayerController : MonoBehaviour
         // pass all parameters to the character control script
         m_Character.Move(m_Move, false, m_Jump);
         m_Jump = false;
+
+        RaycastHit rayTop, rayBottom;
+        if (Physics.Raycast(new Ray(transform.position, Vector3.up), out rayTop, 1000, LayerMask.GetMask("Barrel")) &&
+            Physics.Raycast(new Ray(transform.position, Vector3.down), out rayBottom, 1000, LayerMask.GetMask("Barrel")))
+        {
+            if (Physics.gravity.y > 0)
+            {
+                Vector3 targetUp = Vector3.Slerp(Vector3.up, Vector3.down,
+                    rayBottom.distance/((rayTop.distance + rayBottom.distance)*0.8f));
+                transform.rotation = Quaternion.LookRotation(transform.forward, targetUp);
+                m_GravityDone = false;
+            }
+            else if(!m_GravityDone)
+            {
+                Vector3 targetUp = Vector3.Slerp(Vector3.down, Vector3.up,
+                    rayTop.distance / ((rayTop.distance + rayBottom.distance) * 0.8f));
+                transform.rotation = Quaternion.LookRotation(transform.forward, targetUp);
+                m_GravityDone = targetUp == Vector3.up;
+                if(m_GravityDone)
+                    transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+            }
+
+        }
+        
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class ItemBase : MonoBehaviour
 {
-    public abstract void UseItem();
+    public abstract IEnumerator UseItem();
     protected PlayerController m_Player;
     [SerializeField] protected ObjectBase m_SpawnObject;
 
