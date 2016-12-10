@@ -166,7 +166,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				// jump!
 				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x*1.2f, m_JumpPower, m_Rigidbody.velocity.z*1.2f);
-				m_IsGrounded = false;
+                AudioController.Play("jump", 1, 0, 0);
+                m_IsGrounded = false;
 				//m_Animator.applyRootMotion = false;
 				m_GroundCheckDistance = 0.1f;
 			}
