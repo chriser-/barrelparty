@@ -115,7 +115,6 @@ public class PlayAudioOwn : MonoBehaviour {
 
     protected void _OnEventTriggered()
     {
-        Debug.Log("play");
         if (string.IsNullOrEmpty(audioID)) return;
 
         switch (soundType)
