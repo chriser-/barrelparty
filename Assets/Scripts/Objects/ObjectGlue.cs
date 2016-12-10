@@ -71,13 +71,8 @@ public class ObjectGlue : ObjectBase
         //allow input
         playerController.DisableInput = false;
 
-        RaycastHit rayCastBot;
-
-        if (Physics.Raycast(new Ray(transform.position, Vector3.down), out rayCastBot, 1000, LayerMask.GetMask("Barrel")))
-        {
-            if(rayCastBot.distance > 5f)
-                playerController.ForceMultiplier += m_MultiplierDamage;
-        }
+        if(playerController.transform.position.y >= 0f)
+            playerController.ForceMultiplier += m_MultiplierDamage;
 
         playerController.GravityDone = false;      
     }
