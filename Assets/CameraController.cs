@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 {
 
     [SerializeField, Range(1f, 7f)] private float m_CameraDistance = 3f;
-    [SerializeField, Range(1f, 7f)] private float m_MinCameraDistance = 2f;
+    //[SerializeField, Range(1f, 7f)] private float m_MinCameraDistance = 2f;
 
     void FixedUpdate()
     {
@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
         if (playersAlive.Count > 0)
         {
             Vector3 relativeCenter = playersAlive.First().transform.position;
-            m_CameraDistance = m_MinCameraDistance;
+            //m_CameraDistance = m_MinCameraDistance;
 
             //calculate center of camera
             if (playersAlive.Count > 1)
@@ -51,8 +51,8 @@ public class CameraController : MonoBehaviour
                             );
                     }
                 }
-                m_CameraDistance = maxDistance;
-                //m_CameraDistance = Mathf.Clamp(maxDistance, m_MinCameraDistance, 7);
+                //m_CameraDistance = maxDistance;
+                m_CameraDistance = Mathf.Clamp(maxDistance, 10.0f, 20.0f);
             }
 
             cameraPosition = new Vector3(relativeCenter.x, relativeCenter.y + 5f, -m_CameraDistance-3f);
