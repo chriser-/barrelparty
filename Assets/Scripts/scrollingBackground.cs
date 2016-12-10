@@ -5,7 +5,7 @@ using UnityEngine;
 public class scrollingBackground : MonoBehaviour {
 
 	// Transformation of 3 Sprites
-	public BarrelRotateController barrelController;
+	public BarrelController barrelController;
 
 	private Transform[] backgrounds;
 	private float scrollSpeed;
