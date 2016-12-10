@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemVentilator : ItemBase
 {
-    public override IEnumerator UseItem()
+    protected override IEnumerator useItem()
     {
         m_SpawnObject.PlaceObject<ObjectVentilator>(gameObject.transform.position);
         yield return null;
