@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 33396102946889852}
   - component: {fileID: 135304491860821594}
   - component: {fileID: 23567820483459754}
+  - component: {fileID: 114672365149646150}
   m_Layer: 0
   m_Name: PowerUpRocket
   m_TagString: Untagged
@@ -150,6 +151,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289210089929368}
   m_Mesh: {fileID: 4300000, guid: 029d123a554969c4991865fd3ba9c9ec, type: 3}
+--- !u!114 &114672365149646150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1877251850689410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ff804d971613d4e9fe0e1a66cc283f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnObject: {fileID: 114935572904878084, guid: 3c9e8fe56aa862344acecec97a781850,
+    type: 2}
 --- !u!114 &114887372823628632
 MonoBehaviour:
   m_ObjectHideFlags: 1
