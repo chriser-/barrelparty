@@ -440,12 +440,27 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 302b45c4b208be542bbf8fe3ec9e4206, type: 2}
+      objectReference: {fileID: 2100000, guid: f780cf551e1416a4eadedef1c37e1ae4, type: 2}
     - target: {fileID: 33829459315868342, guid: bccfa03825fd9cc44982ac893f111687,
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 9b6c7117f62049d4c9d1a1a27b3c5d94, type: 3}
+      objectReference: {fileID: 4300000, guid: f642dd1d245704775b7186e3234f7aa2, type: 3}
+    - target: {fileID: 114687693102616032, guid: bccfa03825fd9cc44982ac893f111687,
+        type: 2}
+      propertyPath: Collider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 64389570558625202, guid: bccfa03825fd9cc44982ac893f111687,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64389570558625202, guid: bccfa03825fd9cc44982ac893f111687,
+        type: 2}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bccfa03825fd9cc44982ac893f111687, type: 2}
   m_IsPrefabParent: 0
