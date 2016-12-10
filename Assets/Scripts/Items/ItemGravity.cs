@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemGravity : ItemBase
 {
-    public override IEnumerator UseItem()
+    protected override IEnumerator useItem()
     {
         Physics.gravity *= -1;
         yield return  new WaitForSeconds(5f);
