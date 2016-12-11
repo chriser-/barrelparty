@@ -69,9 +69,11 @@ public class ObjectRocket : ObjectBase
     private IEnumerator destroyRocket()
     {
         yield return new WaitForSeconds(m_duration);
-        CharController.DetachHands();
         //CharController.GravityDone = false;
         CharController.SetInvincible(false);
+        CharController.transform.parent = null;
+        CharController.transform.position += CharController.transform.up*3f;
+        CharController.AddImpulseForce(Vector3.up * 5f);
         Debug.Log("Destroyrocket");
         Destroy(gameObject);
         
