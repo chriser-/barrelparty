@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.53416955, g: 0.58662486, b: 0.6985294, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -701,54 +701,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e38fca1a17d3d644c87a0b9a16140998, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1518935785
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4221449409268276, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221449409268276, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221449409268276, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221449409268276, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221449409268276, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221449409268276, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221449409268276, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221449409268276, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114522777554686782, guid: 266529c716425c140b8ed4b2e81727d8,
-        type: 2}
-      propertyPath: m_SpawnObject
-      value: 
-      objectReference: {fileID: 114465633031100336, guid: af7ea859321ae564a97b1dbbe1fd0e18,
-        type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 266529c716425c140b8ed4b2e81727d8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1561614113
 Prefab:
