@@ -494,7 +494,7 @@ MonoBehaviour:
       loopSequenceRandomDelay: 0
       loopSequenceRandomPitch: 0
       loopSequenceRandomVolume: 0
-      DestroyOnLoad: 1
+      DestroyOnLoad: 0
       Volume: 0.8
       SubItemPickMode: 2
       MinTimeBetweenPlayCalls: 0.1
@@ -579,8 +579,8 @@ MonoBehaviour:
   _audioDisabled: 0
   _volume: 1
   _currentInspectorSelection:
-    currentCategoryIndex: 0
-    currentItemIndex: 9
+    currentCategoryIndex: 1
+    currentItemIndex: 0
     currentSubitemIndex: 0
     currentPlaylistEntryIndex: 0
     currentPlaylistIndex: 0
