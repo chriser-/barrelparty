@@ -1,0 +1,98 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970M (ID=0x1618)
+    Vendor:   NVIDIA
+    VRAM:     3037 MB
+    Driver:   21.21.13.6909
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\AudioToolkit_FreeVersion.dll (this message is harmless)
+Loading D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\AudioToolkit_FreeVersion.dll into Unity Child Domain
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\Rewired_Core.dll (this message is harmless)
+Loading D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\Rewired_Core.dll into Unity Child Domain
+- Completed reload, in  0.029 seconds
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 75Hz; virtual: 2400x1350 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.386785 ms
+Non platform assembly: data-13F3A040 (this message is harmless)
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/data-13F3A040.dll
+Non platform assembly: data-13F61A58 (this message is harmless)
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/data-13F61A58.dll
+Non platform assembly: data-04587020 (this message is harmless)
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/data-04587020.dll
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/steam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/.\steam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/steam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/libsteam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/.\libsteam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/libsteam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/steam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/.\steam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/steam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/libsteam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/.\libsteam_api
+Fallback handler could not load library D:/Gamejam/UnityProjects/barrelparty/alpha_one_Data/Mono/libsteam_api
+Rewired: Searching for compatible XInput library...
+Rewired: Found Xinput1_3.dll.
+Platform assembly: D:\Gamejam\UnityProjects\barrelparty\alpha_one_Data\Managed\System.Xml.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1060 -> priority: 1 
+  Thread -> id: 4508 -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 11.358768 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 1003.
+Total: 5.556220 ms (FindLiveObjects: 0.050134 ms CreateObjectMapping: 0.036712 ms MarkObjects: 5.394764 ms  DeleteObjects: 0.073819 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.553845 ms
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 840.
+Total: 10.585043 ms (FindLiveObjects: 0.052502 ms CreateObjectMapping: 0.035133 ms MarkObjects: 10.365952 ms  DeleteObjects: 0.130270 ms)
+
+The referenced script on this Behaviour (Game Object 'Glow') is missing!
+ 
+(Filename:  Line: 1754)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.351729 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1762.
+Total: 10.718472 ms (FindLiveObjects: 0.084083 ms CreateObjectMapping: 0.061977 ms MarkObjects: 10.545172 ms  DeleteObjects: 0.026843 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ItemGlue+<useItem>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+<UseItem>c__Iterator0:MoveNext()
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+PlayerController:Update()
+ 
+(Filename:  Line: -1)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.779252 ms
+
+Unloading 325 unused Assets to reduce memory usage. Loaded Objects now: 988.
+Total: 11.313372 ms (FindLiveObjects: 0.061582 ms CreateObjectMapping: 0.077767 ms MarkObjects: 9.989353 ms  DeleteObjects: 1.183879 ms)
+
