@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33509065524035596}
   - component: {fileID: 135345396126371358}
   - component: {fileID: 23094024155544456}
+  - component: {fileID: 114120182884818928}
   m_Layer: 0
   m_Name: PowerUpBanana
   m_TagString: Untagged
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369670017275724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.01, z: -1.2}
+  m_LocalPosition: {x: 0.66, y: 2.01, z: -1.2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.7}
   m_Children:
   - {fileID: 4758536525894802}
@@ -150,6 +151,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1448600403248782}
   m_Mesh: {fileID: 4300004, guid: 314ea321f4d113943a6496fe3be3b669, type: 3}
+--- !u!114 &114120182884818928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369670017275724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7aa54f52148fcc4db0593a674140e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnObject: {fileID: 0}
+  m_HPGain: 0.8
 --- !u!114 &114681440368189384
 MonoBehaviour:
   m_ObjectHideFlags: 1

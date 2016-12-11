@@ -20,16 +20,21 @@ public abstract class ItemBase : MonoBehaviour
         if ((playerController = other.gameObject.GetComponent<PlayerController>()) != null)
         {
             m_Player = playerController;
+            if (playerController.CurrentItem)
+            {
+                Destroy(playerController.CurrentItem.gameObject);
+            }
             playerController.CurrentItem = this;
+            playerController.CurrentItem.transform.parent = null;
             //Destroy(gameObject);
             Destroy(GetComponent<Renderer>());
-            Destroy(GetComponent<MeshFilter>());
+            //Destroy(GetComponent<MeshFilter>());
             Destroy(GetComponent<Collider>());
 
-            foreach(Transform t in transform)
-            {
-                Destroy(t.gameObject);
-            }
+            //foreach(Transform t in transform)
+            //{
+            //    Destroy(t.gameObject);
+            //}
         }
     }
 }

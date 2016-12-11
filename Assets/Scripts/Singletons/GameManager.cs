@@ -8,27 +8,50 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public enum States
+    {
+        MainMenu,
+        Game,
+        PauseMenu,
+        GameOver
+    }
 
     [SerializeField]
-    private List<PlayerController> m_Players = new List<PlayerController>();
+    private static States gameState = States.MainMenu;
+
+    [SerializeField]
+    private static float gameTime;
+
+    [SerializeField]
+    private static List<PlayerController> m_Players = new List<PlayerController>();
     [SerializeField] private PlayerController m_PlayerPrefab;
     private Dictionary<int, PlayerController> m_PlayerIdToPlayerMapping = new Dictionary<int, PlayerController>();
     [SerializeField] private Material[] materials;
     public Material[] Materials { get { return materials; } }
 
+    public static int startLives = 5;
 
-    public List<PlayerController> Players
+    public static List<PlayerController> Players
     {
         get { return m_Players; }
     }
 
+    public static float timePlayed { get { return gameTime; } }
+
+    public static float ambientIntensity = 1.0f;
+
     void Start()
     {
+        gameState = States.MainMenu;
         Cursor.visible = false;
     }
 
     void Update()
     {
+        if (gameState == States.Game)
+        {
+            gameTime += Time.deltaTime;
+        }
         /*
         foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
         {
@@ -73,12 +96,25 @@ public class GameManager : Singleton<GameManager>
         return null;
     }
 
+    public static void OnDeath()
+    {
+        int count = 0;
+        foreach(PlayerController p in m_Players)
+        {
+            if (p.Hearts > 0) count++;
+        }
+        if (count < 1 || (count == 1 && m_Players.Count > 1)) OnEndRound();
+    }
+
     public static void StartGame(Action done = null)
     {
+        RenderSettings.ambientIntensity = ambientIntensity;
         LoadScene(3, () =>
         {
+            gameState = States.Game;
             AudioController.PlayMusic("Game Music");
-            Instance.Players.ForEach(p =>
+            gameTime = 0f;
+            Players.ForEach(p =>
             {
                 p.SetControlable(true);
                 p.transform.position = new Vector3(0, 0, (p.PlayerNum*2) - 5);
@@ -86,6 +122,24 @@ public class GameManager : Singleton<GameManager>
                 if (done != null)
                     done();
             });
+        });
+    }
+
+    public static void OnEndRound()
+    {
+        gameState = States.GameOver;
+        LoadScene(4, () =>
+        {
+            AudioController.PlayMusic("Gameover");
+        });
+    }
+
+    public static void BackToMainMenu()
+    {
+        gameState = States.MainMenu;
+        LoadScene(1, () =>
+        {
+            AudioController.PlayMusic("Menu");
         });
     }
 
