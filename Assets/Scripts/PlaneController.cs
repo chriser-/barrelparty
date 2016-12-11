@@ -12,9 +12,11 @@ public class PlaneController : MonoBehaviour
     private float m_FlightDurationTimer = 0f;
 
     // Use this for initialization
-    void Start()
+    IEnumerator Start()
     {
         m_StartPosition = transform.position;
+        yield return new WaitForSeconds(3f);
+        StartFlying();
     }
 
     // Update is called once per frame
