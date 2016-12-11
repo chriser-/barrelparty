@@ -1426,6 +1426,7 @@ GameObject:
   - component: {fileID: 774975300}
   - component: {fileID: 774975299}
   - component: {fileID: 774975298}
+  - component: {fileID: 774975303}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1462,7 +1463,7 @@ Camera:
   m_GameObject: {fileID: 774975297}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -1471,7 +1472,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 104.9
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -1495,12 +1496,20 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 774975297}
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: -0.17, y: 3.79, z: -19.92}
+  m_LocalPosition: {x: 0, y: 4, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+--- !u!45 &774975303
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774975297}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1001 &919801743
 Prefab:
   m_ObjectHideFlags: 0
@@ -2438,7 +2447,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64944973483850876, guid: a3d924c94540fe64c90331d879d3c250, type: 2}
+    - {fileID: 64316515378968504, guid: a3d924c94540fe64c90331d879d3c250, type: 2}
+    - {fileID: 64365553535539410, guid: a3d924c94540fe64c90331d879d3c250, type: 2}
+    - {fileID: 64327416579460434, guid: a3d924c94540fe64c90331d879d3c250, type: 2}
+    - {fileID: 64790051098303802, guid: a3d924c94540fe64c90331d879d3c250, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a3d924c94540fe64c90331d879d3c250, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1489876002
@@ -2496,11 +2510,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fad3e329520dc4b29854e8aeab27e6f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.54
+      value: 65.8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fad3e329520dc4b29854e8aeab27e6f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 64.53
+      value: 100.7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fad3e329520dc4b29854e8aeab27e6f8, type: 3}
       propertyPath: m_LocalRotation.x

@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlaneController : MonoBehaviour
 {
-    private bool m_IsReady = true;
-    public bool IsReady { get { return m_IsReady; } }
+    public bool IsReady { get { return m_FlightDurationTimer < 0f; } }
 
     private Vector3 m_StartPosition;
-    private const float m_FlightDuration = 3f;
+    private const float m_FlightDuration = 5f;
     private float m_FlightDurationTimer = 0f;
 
     // Use this for initialization
-    void Start()
+    IEnumerator Start()
     {
         m_StartPosition = transform.position;
+        yield return new WaitForSeconds(3f);
+        StartFlying();
     }
 
     // Update is called once per frame
