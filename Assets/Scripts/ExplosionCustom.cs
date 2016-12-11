@@ -37,7 +37,7 @@ using UnityStandardAssets.Effects;
                 {
                     if (!character.IsInvincible)
                     {
-                        character.ForceMultiplier += m_MultiplierDamage;
+                        character.ForceMultiplier += m_MultiplierDamage * UnityEngine.Random.Range(0.7f, 1.3f);
                         character.AddExplosionForce(explosionForce * m_Multiplier * 0.5f, transform.position, r, 1 * m_Multiplier * 0.05f);
                     }
                     
