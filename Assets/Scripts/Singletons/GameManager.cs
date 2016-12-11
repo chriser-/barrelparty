@@ -38,6 +38,8 @@ public class GameManager : Singleton<GameManager>
 
     public static float timePlayed { get { return gameTime; } }
 
+    public static float ambientIntensity = 1.0f;
+
     void Start()
     {
         gameState = States.MainMenu;
@@ -106,6 +108,7 @@ public class GameManager : Singleton<GameManager>
 
     public static void StartGame(Action done = null)
     {
+        RenderSettings.ambientIntensity = ambientIntensity;
         LoadScene(3, () =>
         {
             gameState = States.Game;
