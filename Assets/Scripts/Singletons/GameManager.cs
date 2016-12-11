@@ -17,28 +17,28 @@ public class GameManager : Singleton<GameManager>
     }
 
     [SerializeField]
-    private static States gameState = States.MainMenu;
+    private States gameState = States.MainMenu;
 
     [SerializeField]
-    private static float gameTime;
+    private float gameTime;
 
     [SerializeField]
-    private static List<PlayerController> m_Players = new List<PlayerController>();
+    private List<PlayerController> m_Players = new List<PlayerController>();
     [SerializeField] private PlayerController m_PlayerPrefab;
     private Dictionary<int, PlayerController> m_PlayerIdToPlayerMapping = new Dictionary<int, PlayerController>();
     [SerializeField] private Material[] materials;
     public Material[] Materials { get { return materials; } }
 
-    public static int startLives = 5;
+    public int startLives = 5;
 
-    public static List<PlayerController> Players
+    public List<PlayerController> Players
     {
         get { return m_Players; }
     }
 
-    public static float timePlayed { get { return gameTime; } }
+    public float timePlayed { get { return gameTime; } }
 
-    public static float ambientIntensity = 1.0f;
+    public float ambientIntensity = 1.0f;
 
     void Start()
     {
@@ -96,7 +96,7 @@ public class GameManager : Singleton<GameManager>
         return null;
     }
 
-    public static void OnDeath()
+    public void OnDeath()
     {
         int count = 0;
         foreach(PlayerController p in m_Players)
@@ -106,7 +106,7 @@ public class GameManager : Singleton<GameManager>
         if (count < 1 || (count == 1 && m_Players.Count > 1)) OnEndRound();
     }
 
-    public static void StartGame(Action done = null)
+    public void StartGame(Action done = null)
     {
         RenderSettings.ambientIntensity = ambientIntensity;
         LoadScene(3, () =>
@@ -125,7 +125,7 @@ public class GameManager : Singleton<GameManager>
         });
     }
 
-    public static void OnEndRound()
+    public void OnEndRound()
     {
         gameState = States.GameOver;
         LoadScene(4, () =>
@@ -134,16 +134,22 @@ public class GameManager : Singleton<GameManager>
         });
     }
 
-    public static void BackToMainMenu()
+    public void BackToMainMenu()
     {
         gameState = States.MainMenu;
         LoadScene(1, () =>
         {
+            foreach (var item in m_Players)
+            {
+                Destroy(item.gameObject);
+            }
+            m_Players.Clear();
+            m_PlayerIdToPlayerMapping.Clear();
             AudioController.PlayMusic("Menu");
         });
     }
 
-    public static bool IsLoadingLevel
+    public bool IsLoadingLevel
     {
         get;
         private set;

@@ -12,10 +12,10 @@ public class StatusController : MonoBehaviour
     {
         for (int i = 0; i < m_PlayerStatusControllers.Length; i++)
         {
-            if (i < GameManager.Players.Count)
+            if (i < GameManager.Instance.Players.Count)
             {
                 m_PlayerStatusControllers[i].gameObject.SetActive(true);
-                m_PlayerStatusControllers[i].SetPlayer(GameManager.Players[i]);
+                m_PlayerStatusControllers[i].SetPlayer(GameManager.Instance.Players[i]);
             }
             else
             {

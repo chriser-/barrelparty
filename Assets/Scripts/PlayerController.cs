@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Players.Add(this);
+        GameManager.Instance.Players.Add(this);
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<ThirdPersonCharacter>();
         m_animator = GetComponent<Animator>();
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if (m_Player == null && GameManager.Players.Count == 1)
+        if (m_Player == null && GameManager.Instance.Players.Count == 1)
         {
             m_Player = ReInput.players.GetPlayer(4); //Keyboard Player
         }
@@ -297,7 +297,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         Hearts--;
-        GameManager.OnDeath();
+        GameManager.Instance.OnDeath();
         ForceMultiplier = 0;
         if (Hearts > 0)
         {

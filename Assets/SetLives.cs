@@ -19,7 +19,7 @@ public class SetLives : MonoBehaviour {
 
     public void setLives(float lives)
     {
-        GameManager.startLives = (int)lives;
+        GameManager.Instance.startLives = (int)lives;
         text.text = "Lives: " + (int)lives;
     }
 }
