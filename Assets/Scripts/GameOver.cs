@@ -19,7 +19,7 @@ public class GameOver : MonoBehaviour {
             {
                 if (p.Hearts > 0)
                 {
-                    text.text = "Player " + (p.PlayerId + 1) + "won!";
+                    text.text = "Player " + (p.PlayerId + 1) + " won!\n You survived " + (int)GameManager.timePlayed + " seconds";
                 }
             }
         }
