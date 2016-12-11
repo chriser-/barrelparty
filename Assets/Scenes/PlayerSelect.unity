@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  travelDistance: 0.3
+  travelDistance: 0.6
 --- !u!1 &1153810597
 GameObject:
   m_ObjectHideFlags: 0
