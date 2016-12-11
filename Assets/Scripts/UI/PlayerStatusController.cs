@@ -9,7 +9,7 @@ public class PlayerStatusController : MonoBehaviour
     [SerializeField] private HeartPlayerController m_PlayerHearts;
     [SerializeField] private Text m_MultiplierText;
     [SerializeField] private Image m_SideArrow;
-    [SerializeField] private Image m_Panel;
+    [SerializeField] private RectTransform m_Panel;
 	// Use this for initialization
 	void Start ()
     {
@@ -25,8 +25,9 @@ public class PlayerStatusController : MonoBehaviour
         m_SideArrow.transform.position = new Vector3(m_SideArrow.transform.position.x, point.y, 0);
         m_SideArrow.gameObject.SetActive(point.x < 0);
         if (m_Player.CurrentItem != null) {
-            RectTransform CanvasRect = m_Panel.GetComponent<RectTransform>();
-            m_Player.CurrentItem.transform.position = Camera.current.ScreenToWorldPoint(m_Panel.transform.position - new Vector3(CanvasRect.rect.width *0.5f, CanvasRect.rect.height *0.5f,-20f));
+            //RectTransform CanvasRect = m_Panel.GetComponent<RectTransform>();
+            m_Player.CurrentItem.transform.position = Camera.main.ScreenToWorldPoint(m_Panel.transform.position - new Vector3(12.5f,12.5f,-20f));
+
         }
     }
 

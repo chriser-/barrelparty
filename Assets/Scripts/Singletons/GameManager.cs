@@ -134,6 +134,15 @@ public class GameManager : Singleton<GameManager>
         });
     }
 
+    public static void BackToMainMenu()
+    {
+        gameState = States.MainMenu;
+        LoadScene(1, () =>
+        {
+            AudioController.PlayMusic("Menu");
+        });
+    }
+
     public static bool IsLoadingLevel
     {
         get;
