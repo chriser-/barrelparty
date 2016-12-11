@@ -34,5 +34,6 @@ public class PlaneController : MonoBehaviour
     public void StartFlying()
     {
         m_FlightDurationTimer = m_FlightDuration;
+        AudioController.Play("Flyby");
     }
 }
