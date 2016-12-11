@@ -301,14 +301,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
-    - target: {fileID: 1937060212138058, guid: e226166c4afa13149b2754023d99f213, type: 2}
-      propertyPath: m_Name
-      value: apple
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348674564939366, guid: e226166c4afa13149b2754023d99f213, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.92100006
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e226166c4afa13149b2754023d99f213, type: 2}
   m_IsPrefabParent: 0
