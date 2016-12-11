@@ -42,6 +42,7 @@ public class ObjectRocket : ObjectBase
             m_isActive = true;
             StartCoroutine(destroyCoroutine);
             CharController.SetInvincible(true);
+            Debug.Log("Start");
         }
     }
 
@@ -57,8 +58,9 @@ public class ObjectRocket : ObjectBase
             if (destroyCoroutine != null)
                 StopCoroutine(destroyCoroutine);
             CharController.DetachHands();
-            CharController.GravityDone = false;
+            //CharController.GravityDone = false;
             Destroy(gameObject);
+            Debug.Log("Collision");
         }
     }
 
@@ -67,9 +69,13 @@ public class ObjectRocket : ObjectBase
     private IEnumerator destroyRocket()
     {
         yield return new WaitForSeconds(m_duration);
-        CharController.DetachHands();
-        CharController.GravityDone = false;
-        Destroy(gameObject);
+        //CharController.GravityDone = false;
         CharController.SetInvincible(false);
+        CharController.transform.parent = null;
+        CharController.transform.position += CharController.transform.up*3f;
+        CharController.AddImpulseForce(Vector3.up * 5f);
+        Debug.Log("Destroyrocket");
+        Destroy(gameObject);
+        
     }
 }
