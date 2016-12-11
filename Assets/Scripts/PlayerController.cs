@@ -298,6 +298,7 @@ public class PlayerController : MonoBehaviour
     {
         Hearts--;
         GameManager.Instance.OnDeath();
+        AudioController.Play("Death");
         ForceMultiplier = 0;
         if (Hearts > 0)
         {
