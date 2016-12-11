@@ -11,11 +11,10 @@ public class PlaneController : MonoBehaviour
     private float m_FlightDurationTimer = 0f;
 
     // Use this for initialization
-    IEnumerator Start()
+    void Start()
     {
         m_StartPosition = transform.position;
-        yield return new WaitForSeconds(3f);
-        StartFlying();
+        StartCoroutine(StartFlying());
     }
 
     // Update is called once per frame
@@ -32,8 +31,9 @@ public class PlaneController : MonoBehaviour
         }
     }
 
-    public void StartFlying()
+    private IEnumerator StartFlying()
     {
+        yield return new WaitForSeconds(Random.Range(15,25));
         m_FlightDurationTimer = m_FlightDuration;
         AudioController.Play("Flyby");
     }

@@ -305,6 +305,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(invincibleSpawnTimer());
             transform.position = Vector3.zero;
             transform.rotation = Quaternion.identity;
+            Character.Rigidbody.velocity = Vector3.zero;
         }
         else
         {
