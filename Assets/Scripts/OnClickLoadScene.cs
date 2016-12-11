@@ -10,4 +10,9 @@ public class OnClickLoadScene : MonoBehaviour {
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void LoadMainMenu()
+    {
+        GameManager.Instance.BackToMainMenu();
+    }
 }

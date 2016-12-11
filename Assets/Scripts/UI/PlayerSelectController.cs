@@ -57,7 +57,7 @@ public class PlayerSelectController : MonoBehaviour
 
     private void spawnPlayer(int playerid)
     {
-        int spawnNum = GameManager.Players.Count;
+        int spawnNum = GameManager.Instance.Players.Count;
         Vector3 spawnPos = m_PlayerSelects[spawnNum].RectTransform.transform.position;
         spawnPos.z = 1;
         PlayerController player = GameManager.Instance.SpawnPlayer(playerid, spawnPos);
@@ -96,7 +96,7 @@ public class PlayerSelectController : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         AudioController.Play("Fight");
-        GameManager.StartGame();
+        GameManager.Instance.StartGame();
 
     }
 }
