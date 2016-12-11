@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField] private Renderer m_Renderer;
+
     private Animator m_animator;
     private bool m_ikActive = false;
     private Transform m_handL;
@@ -137,7 +139,6 @@ public class PlayerController : MonoBehaviour
             m_OutOfFrustumTimer -= Time.fixedDeltaTime;
             if (m_OutOfFrustumTimer <= 0)
             {
-                Debug.Log("out of bounds");
                 Die();
                 m_OutOfFrustumTimer = m_OutOfFrustumTimerMax;
             }
@@ -303,7 +304,7 @@ public class PlayerController : MonoBehaviour
             m_IsInvincible = true;
             StartCoroutine(invincibleSpawnTimer());
             transform.position = Vector3.zero;
-            Debug.Log("KABUUM");
+            transform.rotation = Quaternion.identity;
         }
         else
         {
@@ -315,5 +316,10 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         m_IsInvincible = false;
+    }
+
+    public void SetMaterial(Material m)
+    {
+        m_Renderer.material = m;
     }
 }

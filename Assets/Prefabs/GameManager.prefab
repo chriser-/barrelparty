@@ -52,5 +52,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 1
+  m_Players: []
   m_PlayerPrefab: {fileID: 114126852170509968, guid: 8bce53841a8f4b7489614c3bffdac718,
     type: 2}
+  materials:
+  - {fileID: 2100000, guid: e918305722012c04292041cdc73222b1, type: 2}
+  - {fileID: 2100000, guid: 92827512c10e9f74bb5241aa859d7eb1, type: 2}
+  - {fileID: 2100000, guid: 1a134bad853f60c4ab3c814baf3548e1, type: 2}
+  - {fileID: 2100000, guid: fd835cf8b2d89db4e9d337848280c4ea, type: 2}
