@@ -9,17 +9,17 @@ public class GameOver : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (GameManager.Players.Count == 1)
+		if (GameManager.Instance.Players.Count == 1)
         {
-            text.text = "You survived " + (int)GameManager.timePlayed + " seconds";
+            text.text = "You survived " + (int)GameManager.Instance.timePlayed + " seconds";
         }
         else
         {
-            foreach(PlayerController p in GameManager.Players)
+            foreach(PlayerController p in GameManager.Instance.Players)
             {
                 if (p.Hearts > 0)
                 {
-                    text.text = "Player " + (p.PlayerId + 1) + " won!\n You survived " + (int)GameManager.timePlayed + " seconds";
+                    text.text = "Player " + (p.PlayerId + 1) + " won!\n You survived " + (int)GameManager.Instance.timePlayed + " seconds";
                 }
             }
         }

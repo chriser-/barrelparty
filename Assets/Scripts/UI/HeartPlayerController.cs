@@ -35,7 +35,7 @@ public class HeartPlayerController : MonoBehaviour {
     public void InitializeHearts(PlayerController player)
     {
         m_Player = player;
-        m_Player.Hearts = GameManager.startLives;
+        m_Player.Hearts = GameManager.Instance.startLives;
         for (int i = 0; i < m_Player.Hearts; i++)
         {
             addHeart();
