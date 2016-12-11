@@ -5,59 +5,82 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] private float m_Multiplier = 2f;
 
-    [SerializeField, Range(1f, 7f)] private float m_CameraDistance = 3f;
-    //[SerializeField, Range(1f, 7f)] private float m_MinCameraDistance = 2f;
+    private Vector3 initPosition;
+    private Vector3 gravityReversedPosition;
 
-    void FixedUpdate()
+    private Quaternion initRotation;
+    private Quaternion gravityReversedRotation;
+
+    private float m_InitSize = 5f;
+    [SerializeField] private float m_GravityChangeSize = 10f;
+
+    private float m_InitDistance;
+    private float m_CurrentDistance;
+
+    private float m_Lerp;
+
+    private Animator m_Animator;
+
+    void Awake()
     {
-        if (GameManager.Instance.Players.Count == 0)
-            return;
+        initPosition = new Vector3(0f, 4f, -20f);
+        gravityReversedPosition = new Vector3(0f, -4f, -20f);
 
-        Vector3 cameraPosition = transform.position;
-        List<PlayerController> playersAlive = GameManager.Instance.Players.Where(p => p.Hearts > 0).ToList();
+        initRotation = Quaternion.Euler(new Vector3(40f, 0f, 0f));
+        gravityReversedRotation = Quaternion.Euler(new Vector3(-40f, 0f, 0f));
 
-        if (playersAlive.Count > 0)
+        transform.position = initPosition;
+        transform.rotation = initRotation;
+
+        m_InitDistance = (initPosition - gravityReversedPosition).sqrMagnitude;
+
+        m_Animator = GetComponent<Animator>();
+        //m_InitDistance /= 2f;
+    }
+
+    void Update()
+    {
+        if (Physics.gravity.y > 0)
         {
-            Vector3 relativeCenter = playersAlive.First().transform.position;
-            //m_CameraDistance = m_MinCameraDistance;
-
-            //calculate center of camera
-            if (playersAlive.Count > 1)
+            if ((m_CurrentDistance = (gameObject.transform.position - gravityReversedPosition).sqrMagnitude) >= 0.01f)
             {
-                float xMin = playersAlive.Min(p => p.transform.position.x);
-                float yMin = playersAlive.Min(p => p.transform.position.y);
-
-                float xMax = playersAlive.Max(p => p.transform.position.x);
-                float yMax = playersAlive.Max(p => p.transform.position.y);
-
-                relativeCenter = (new Vector3(xMin, yMin, 0) + new Vector3(xMax, yMax, 0)) * 0.5f;
-
-
-                //calculate distance of camera
-                float maxDistance = 0f;
-                for (int i = 0; i < playersAlive.Count; i++)
-                {
-                    for (int j = i; j < playersAlive.Count; j++)
-                    {
-                        maxDistance = Mathf.Max(
-                            maxDistance,
-                            Vector3.Distance(
-                                new Vector3(playersAlive[i].transform.position.x,
-                                    playersAlive[i].transform.position.y, 0),
-                                new Vector3(playersAlive[j].transform.position.x,
-                                    playersAlive[j].transform.position.y, 0)
-                                )
-                            );
-                    }
-                }
-                //m_CameraDistance = maxDistance;
-                m_CameraDistance = Mathf.Clamp(maxDistance, 10.0f, 20.0f);
+                gameObject.transform.position = Vector3.Slerp(gameObject.transform.position, gravityReversedPosition,
+                    Time.deltaTime* m_Multiplier);
+                gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, gravityReversedRotation,
+                    Time.deltaTime * m_Multiplier);
+                //m_Lerp = Mathf.PingPong(Time.time, m_GravityChangeSize);
+                m_Lerp = Mathf.PingPong(m_CurrentDistance, m_InitDistance);
+                //Camera.main.orthographicSize = Mathf.Lerp(m_InitSize, m_GravityChangeSize, m_Lerp);
             }
+            else
+            {
+                gameObject.transform.position = gravityReversedPosition;
+                gameObject.transform.rotation = gravityReversedRotation;
+            }
+        }
+        else
+        {
+            if ((m_CurrentDistance = (gameObject.transform.position - initPosition).sqrMagnitude) >= 0.01f)
+            {
+                gameObject.transform.position = Vector3.Slerp(gameObject.transform.position, initPosition,
+                    Time.deltaTime * m_Multiplier);
+                gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, initRotation,
+                    Time.deltaTime * m_Multiplier);
 
-            cameraPosition = new Vector3(relativeCenter.x, relativeCenter.y + 5f, -m_CameraDistance-3f);
+                m_Lerp = Mathf.PingPong(m_CurrentDistance, m_InitDistance);
+                //Camera.main.orthographicSize = Mathf.Lerp(m_InitSize, m_GravityChangeSize, m_Lerp);
+            }
+            else
+            {
+                gameObject.transform.position = initPosition;
+                gameObject.transform.rotation = initRotation;
+            }
         }
 
-        transform.position = Vector3.Slerp(transform.position, cameraPosition, Time.deltaTime*10f);
+        m_Animator.SetBool("gravityOn", Physics.gravity.y > 0);
+
     }
+
 }
