@@ -73,7 +73,7 @@ public class ObjectRocket : ObjectBase
         CharController.SetInvincible(false);
         CharController.transform.parent = null;
         CharController.transform.position += CharController.transform.up*3f;
-        CharController.AddImpulseForce(Vector3.up * 5f);
+        CharController.Character.Rigidbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         Debug.Log("Destroyrocket");
         Destroy(gameObject);
         
