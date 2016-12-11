@@ -13,6 +13,9 @@ public class GameManager : Singleton<GameManager>
     private List<PlayerController> m_Players = new List<PlayerController>();
     [SerializeField] private PlayerController m_PlayerPrefab;
     private Dictionary<int, PlayerController> m_PlayerIdToPlayerMapping = new Dictionary<int, PlayerController>();
+    [SerializeField] private Material[] materials;
+    public Material[] Materials { get { return materials; } }
+
 
     public List<PlayerController> Players
     {

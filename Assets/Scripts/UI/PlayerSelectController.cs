@@ -68,6 +68,7 @@ public class PlayerSelectController : MonoBehaviour
             m_PlayerIdToSpawnMapping[playerid] = spawnNum;
             player.Character.Rigidbody.isKinematic = true;
             player.SetControlable(false);
+            player.SetMaterial(GameManager.Instance.Materials[player.PlayerNum - 1]);
             player.transform.rotation = Quaternion.Euler(0, 180, 0);
             m_PlayerSelects[spawnNum].JoinText.gameObject.SetActive(false);
             DontDestroyOnLoad(player.gameObject);

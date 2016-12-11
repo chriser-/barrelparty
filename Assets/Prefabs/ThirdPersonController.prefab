@@ -2539,9 +2539,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ForceMultiplier: 0
   m_Hearts: 5
+  m_PlayerId: 1
+  m_PlayerNum: 1
   m_UseKeyboardInput: 0
   m_CurrentItem: {fileID: 0}
   m_DisableInput: 0
+  m_Renderer: {fileID: 137510426305164522}
 --- !u!114 &114654917474993944
 MonoBehaviour:
   m_ObjectHideFlags: 1
