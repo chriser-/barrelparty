@@ -33,7 +33,7 @@ public class PlaneController : MonoBehaviour
 
     private IEnumerator StartFlying()
     {
-        yield return new WaitForSeconds(Random.Range(15,25));
+        yield return new WaitForSeconds(Random.Range(10,20));
         m_FlightDurationTimer = m_FlightDuration;
         AudioController.Play("Flyby");
     }
