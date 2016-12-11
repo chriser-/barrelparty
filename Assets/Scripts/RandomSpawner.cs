@@ -59,12 +59,12 @@ public class RandomSpawner : MonoBehaviour {
         if (g.stickToBarrel)
         {
             
-            Instantiate(g.SpawnObject,  new Vector3(transform.position.x, transform.position.y, Random.Range(transform.position.z - startZendZ.x, transform.position.z + startZendZ.y)), g.SpawnObject.transform.rotation, barrel.transform);
+            Instantiate(g.SpawnObject, new Vector3(transform.position.x, Random.Range(transform.position.y - startZendZ.x, transform.position.y + startZendZ.y), Random.Range(transform.position.z - startZendZ.x, transform.position.z + startZendZ.y)), g.SpawnObject.transform.rotation, barrel.transform);
 
         }
         else
         {
-            Instantiate(g.SpawnObject, new Vector3(transform.position.x, transform.position.y, Random.Range(transform.position.z - startZendZ.x, transform.position.z + startZendZ.y)), g.SpawnObject.transform.rotation);
+            Instantiate(g.SpawnObject, new Vector3(transform.position.x, Random.Range(transform.position.y - startZendZ.x, transform.position.y + startZendZ.y), Random.Range(transform.position.z - startZendZ.x, transform.position.z + startZendZ.y)), g.SpawnObject.transform.rotation);
         }
     }
 }
