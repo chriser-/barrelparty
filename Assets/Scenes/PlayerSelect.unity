@@ -832,11 +832,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e4e4515beccc34579995ce5830f9072f, type: 3}
       propertyPath: m_LocalScale.y
-      value: -1
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e4e4515beccc34579995ce5830f9072f, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.2
+      value: -0.205
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: e4e4515beccc34579995ce5830f9072f, type: 3}
       propertyPath: m_Enabled
