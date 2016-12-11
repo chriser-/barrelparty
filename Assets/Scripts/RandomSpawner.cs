@@ -35,10 +35,10 @@ public class RandomSpawner : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         Random.InitState((int)System.DateTime.Now.Ticks);
-	    m_SpawnTimer -= Time.deltaTime;
-        if (Random.Range(0f, 1f) > 0.95f)
+	    m_SpawnTimer -= Time.fixedDeltaTime;
+        if (Random.Range(0f, 1f) > 0.985f)
         {
             float r = Random.Range(0f, 1f);
 
