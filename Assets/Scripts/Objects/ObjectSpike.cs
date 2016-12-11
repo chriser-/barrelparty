@@ -29,7 +29,7 @@ public class ObjectSpike : MonoBehaviour
 
         if ((character = coll.gameObject.GetComponent<PlayerController>()) != null)
         {
-            character.ForceMultiplier += m_MultiplierDamage*Random.Range(0.7f,1.3f);
+            character.ForceMultiplier += m_MultiplierDamage*Random.Range(0.5f,1.5f);
 
             character.AddImpulseForce(transform.up * m_SpikeForce);
         }

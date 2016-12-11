@@ -16,6 +16,9 @@ public class RandomSpawner : MonoBehaviour {
     public SpawnGroup[] spawn;
     public GameObject barrel;
     public Vector2 startZendZ;
+    [SerializeField]
+    private float m_SpawnTime = 0.3f;
+    private float m_SpawnTimer = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +37,7 @@ public class RandomSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Random.InitState((int)System.DateTime.Now.Ticks);
+	    m_SpawnTimer -= Time.deltaTime;
         if (Random.Range(0f, 1f) > 0.95f)
         {
             float r = Random.Range(0f, 1f);
@@ -42,7 +46,7 @@ public class RandomSpawner : MonoBehaviour {
 
             foreach (SpawnGroup s in spawn)
             {
-                if (start <= r && r <= s.probability)
+                if (start <= r && r <= s.probability && m_SpawnTimer <= 0f)
                 {
                     SpawnObject(s);
                 }
@@ -66,5 +70,6 @@ public class RandomSpawner : MonoBehaviour {
         {
             Instantiate(g.SpawnObject, new Vector3(transform.position.x, Random.Range(transform.position.y - startZendZ.x, transform.position.y + startZendZ.y), Random.Range(transform.position.z - startZendZ.x, transform.position.z + startZendZ.y)), g.SpawnObject.transform.rotation);
         }
+        m_SpawnTimer = m_SpawnTime;
     }
 }
