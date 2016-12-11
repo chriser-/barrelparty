@@ -923,7 +923,7 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-      - _actionCategoryId: 0
+      - _actionCategoryId: 1
         _actionId: -1
         _elementType: 1
         _elementIdentifierId: 32
@@ -934,8 +934,8 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-      - _actionCategoryId: 2
-        _actionId: 3
+      - _actionCategoryId: 1
+        _actionId: 14
         _elementType: 1
         _elementIdentifierId: 33
         _axisRange: 0
@@ -945,8 +945,8 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-      - _actionCategoryId: 2
-        _actionId: 2
+      - _actionCategoryId: 1
+        _actionId: 13
         _elementType: 1
         _elementIdentifierId: 34
         _axisRange: 0
@@ -4098,7 +4098,7 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-      - _actionCategoryId: 0
+      - _actionCategoryId: 5
         _actionId: -1
         _elementType: 1
         _elementIdentifierId: 32
@@ -7248,6 +7248,35 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+    - id: 1
+      categoryId: 1
+      layoutId: 0
+      name: 
+      hardwareGuidString: 
+      customControllerUid: 0
+      actionElementMaps:
+      - _actionCategoryId: 5
+        _actionId: 11
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 115
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 5
+        _actionId: 11
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 13
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps:
     - id: 0
       categoryId: 0
@@ -7290,7 +7319,7 @@ MonoBehaviour:
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
     joystickMapIdCounter: 7
-    keyboardMapIdCounter: 1
+    keyboardMapIdCounter: 2
     mouseMapIdCounter: 1
     customControllerMapIdCounter: 1
     customControllerIdCounter: 1
