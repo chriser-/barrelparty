@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField] private Renderer m_Renderer;
+
     private Animator m_animator;
     private bool m_ikActive = false;
     private Transform m_handL;
@@ -314,5 +316,10 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         m_IsInvincible = false;
+    }
+
+    public void SetMaterial(Material m)
+    {
+        m_Renderer.material = m;
     }
 }
