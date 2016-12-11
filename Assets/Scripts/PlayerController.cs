@@ -132,11 +132,12 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-        if (!GeometryUtility.TestPlanesAABB(planes, Character.Capsule.bounds) && !IsInvincible)
+        if (!GeometryUtility.TestPlanesAABB(planes, Character.Capsule.bounds) && !m_IsInvincible)
         {
             m_OutOfFrustumTimer -= Time.fixedDeltaTime;
             if (m_OutOfFrustumTimer <= 0)
             {
+                Debug.Log("out of bounds");
                 Die();
                 m_OutOfFrustumTimer = m_OutOfFrustumTimerMax;
             }
@@ -302,6 +303,7 @@ public class PlayerController : MonoBehaviour
             m_IsInvincible = true;
             StartCoroutine(invincibleSpawnTimer());
             transform.position = Vector3.zero;
+            Debug.Log("KABUUM");
         }
         else
         {
