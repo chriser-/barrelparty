@@ -8,7 +8,7 @@ public class BackgroundRotation : MonoBehaviour
     [Range(0.1f, 1.0f)]
     public float m_influenceFactor = 0.5f;
 
-    // Camera will rotate from -40 to 40
+    // Camera will rotate from 40 to -40
     // We will know where the end point is
     // ergo we can interpolate with influence parameter
 
@@ -18,11 +18,13 @@ public class BackgroundRotation : MonoBehaviour
 	void Start ()
     {
         startPos = transform.position;
-        endPos = new Vector3(transform.position.x, 2.0f * transform.position.y * m_influenceFactor, transform.position.z);
+        endPos = new Vector3(transform.position.x, -2.0f * transform.position.y * m_influenceFactor, transform.position.z);
     }
 	
 	void Update ()
     {
-        transform.position = Vector3.Lerp(startPos, endPos, (m_cameraObject.transform.rotation.x + 40.0f) / 80.0f);
+        float angle = m_cameraObject.transform.rotation.eulerAngles.x;
+        angle = angle > 180.0f ? angle - 360.0f : angle;
+        transform.position = Vector3.Lerp(startPos, endPos, 1.0f - (angle + 40.0f) / 80.0f);
 	}
 }
